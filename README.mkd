@@ -1,10 +1,28 @@
-# Plugmedia 2.2
+# Plugmedia 2.3
 
 Plugmedia was created to enhance the multimedia station embeded in qnap nas firmware.
 First version of PM was 2.0.1 and was delivered without any database system, but for performance issue, plugmedia is now linked with an open source database
 Postgresql
 
 ## Release notes
+
+### Private 2.3 (Public)
+* 10: [Change Request] Image details: Admin should be able to add title and description 
+* 31: [Change Request] Support AdoDb (for caching sql query and speed PM) 
+* 37: [Change Request] Flush Buffer 
+* 32: [Bug] Usergroup adding - error removes all changes 
+* 15: [Change Request] Title and description 
+* 34: [Change Request] Add photo tagging function 
+* 6:  [Change Request] In Administration: User and group listing should not be seperated by ";" 
+* 24: [Change Request] Replace Item selector in Administration 
+* 9:  [Change Request] Buttons on top right - better differentiation between active and inactive state 
+* 23: [Change Request] Replace POST to GET for ajax requests 
+* 21: [Change Request] Compress Javascript and CSS files 
+* 19: [Change Request] Comments should be updated independently of MP3 playback
+* 3:  [Change Request] Administration - Add user, user gets automatically an email with login password
+* 25: [Bug] Tree view doesn't expand while generate thumbnails 
+
+
 
 ### Private 2.3 (beta)
 * 10: [Change Request] Image details: Admin should be able to add title and description 
