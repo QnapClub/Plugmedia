@@ -1,0 +1,27 @@
+TO INSTALL:
+
+COPY
+------
+Copy all the content of QWeb under /share/Qweb/plugmedia/
+copy the content of cgi-bin under /home/httpd/cgi-bin/
+
+CHMOD
+------
+Chmod folder to 0777 /share/Qweb/plugmedia/system/_cache
+Chmod folder to 0777 /share/Qweb/plugmedia/system/_compiled
+Chmod folder to 0777 /share/Qweb/plugmedia/system/logs
+Chmod file to 0777 /share/Qweb/plugmedia/system/config/users.php
+Chmod file to 0777 /share/Qweb/plugmedia/system/config/groups.php
+Chmod file to 0777 /share/Qweb/plugmedia/system/config/plugmedia_admin.php
+
+Chmod file to 0755 /home/httpd/cgi-bin/cgi_auth.cgi
+
+
+MODIFY
+-------
+Modify the file /share/Qweb/plugmedia/system/config/config.php according to your prefs
+$config['base_url']	= "http://IP_OR_DDNS/plugmedia/";
+
+CHECK
+------
+Go to http://IP_OR_DDNS/plugmedia/check.php (just last 2 lines must be red)
