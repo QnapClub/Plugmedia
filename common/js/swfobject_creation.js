@@ -1,1 +1,0 @@
-var s1 = new SWFObject('system/views/common/player/player.swf','ply','350','350','9','#ffffff');
