@@ -1,0 +1,128 @@
+# Plugmedia 2.2
+
+Plugmedia was created to enhance the multimedia station embeded in qnap nas firmware.
+First version of PM was 2.0.1 and was delivered without any database system, but for performance issue, plugmedia is now linked with an open source database
+Postgresql
+
+## Release notes
+
+### Private 2.3 (beta)
+* 10: [Change Request] Image details: Admin should be able to add title and description 
+* 31: [Change Request] Support AdoDb (for caching sql query and speed PM) 
+* 37: [Change Request] Flush Buffer 
+* 32: [Bug] Usergroup adding - error removes all changes 
+* 15: [Change Request] Title and description 
+* 34: [Change Request] Add photo tagging function 
+* 6:  [Change Request] In Administration: User and group listing should not be seperated by ";" 
+* 24: [Change Request] Replace Item selector in Administration 
+* 9:  [Change Request] Buttons on top right - better differentiation between active and inactive state 
+* 23: [Change Request] Replace POST to GET for ajax requests 
+* 21: [Change Request] Compress Javascript and CSS files 
+* 19: [Change Request] Comments should be updated independently of MP3 playback
+* 3:  [Change Request] Administration - Add user, user gets automatically an email with login password
+* 25: [Bug] Tree view doesn't expand while generate thumbnails 
+
+
+
+
+### Public 2.2
+* 59: [Bug] Filter administration - you can add "empty" filters
+* 53: [Bug] Impossible to access a directory with files removed
+* 60: [Bug] In usergroup adminsitration - reset the form doesnt work
+* 47: [Bug] Indexing was done more than 10 times, while opening a new directory
+* 52: [Bug] Some thumbs are not created, even though the rights are set correctly*
+* 57: [Change Request] Support for RAW files
+* 58: [Change Request] Add cover/id3 options in admin 
+* 0000089: [Bug] Video-Playback doesnt work (administrator)
+* 0000088: [Bug] Music-Playback: If you hit the little thumbs below the music player, the screen stays blank (administrator)
+* 0000091: [Bug] Displaying image 1 and 2 in one folder results in doubled thumbs below midsized view and corrupt navigation (administrator)
+* 0000081: [Bug] Login-Screen: OK button doesn't work (administrator)
+* 0000082: [Change request] First login - even the admin has no access rights in the beginning (administrator)
+* 0000084: [Bug] Picture with the following name "IM000471[1].jpg" caused "ressource protected" error (administrator)
+* 0000086: [Change request] Image order not as known... (administrator)
+* 0000093: [Bug] If you click an image file in list view, no mid-sized picture (or ressource protecteD) is shown (administrator)
+* 0000095: [Bug] Midsized-thumbs . if clicked, the pop-up windows shows the image in the wrong aspect ratio (administrator)
+* 0000042: [Change request] iconv (administrator)
+* 0000080: [Change request] Find art album based on pattern (administrator)
+* 0000017: [Change request] Auto-Rotation on EXIF information - also for thumbs (administrator)
+* 0000025: [Change request] Download - instead of opening directly there should be a choice (administrator)
+* 0000011: [Change request] Database clean-up for Admin only (administrator)
+* 0000002: [Bug] Footer - shown "generated time" behind "hosted on QNAP" is in an unusable format (administrator)
+* 0000076: [Bug] If an photo album contains pictures in more than one page, and thumbs are not created yet, an image cannot be viewed directly (administrator)
+* 0000046: [Change request] Download system (administrator)
+* 0000044: [Task] Testing (administrator)
+* 0000048: [Change request] Overwrite embeded QNAP method to generate thumbnail (administrator)
+* 0000051: [Change request] Open SSL (administrator)
+* 0000063: [Change request] Replace EXIF embeded in PHP (administrator)
+
+### Private 2.1
+* 0000028: [Change request] Login popup window should accept "enter" after entering passphrase (administrator)
+* 0000079: [Change request] Index all files in Database (Postgresql) (administrator)
+
+
+### Public 2.0.1
+* 0000075: [Bug] Column header are not translated
+* 0000074: [Change request] Add support for nl language
+* 0000073: [Bug] Fatal error (lookup didn't exist)
+* 0000072: [Bug] Incorrect ID3 tag displayed
+* 0000003: [Bug] EXIF-view: Filedate is shown in wrong format (administrator)
+
+
+## FAQ
+
+### Who makes Plugmedia?
+
+This project is a joint effort between Christophe L (PM system) and Laurent P (qpkg package)
+
+### What's in the package?
+
+Here's a short list of current Plugmedia features:
+
+* Auto rotate images
+* Gallery-wide slideshow
+* Commenting
+* Logging
+* RSS supports
+* Account permission (sync with nas's users)
+* Customizing API
+* Download system
+* Album tree
+* Supports multimedia files
+* Radio Streaming
+* Blogging Link 
+* Display RAW files (.3fr,.arw,.crw,.cr2,.dng,.kdc,.mrw,.nef,.orf,.ptx,.pef,.raf,.x3f,.rw2)
+* METADATA extraction (ID3 tags v1, v2; Exifs tags)
+* Download Cover (embedded in ID3 or downloaded on Last.Fm)
+* Templates
+* Mobile Web Application (iphone)
+* Tagging feature
+ 
+
+
+### What are the future plans?
+
+Current release is 2.2. The 3.0 release, which is the next major release, will 
+introduce following changes (list is incomplete as of this writing):
+
+* Download folders in a zip
+* Sharing pictures via email
+* Google map integration
+* Change design on the fly
+* Improve Thumbnail generation
+* IP tracking
+* Resizing picture on the fly
+* ...
+
+
+## Installing Plugmedia
+
+* Download and install QPKG Optware and Postgresql
+* Start the Postgresql package
+* Download Plugmedia QPKG package and install it
+* Login in plugmedia using admin/password from your NAS (account admin)
+
+Note: If you have a blank screen or somes problems, just open the page plugmedia/check.php and correct red lines according to description
+
+## Thanks
+Thanks to Andre and Roland my firsts beta testers for their time and help.
+Thanks also to Arnaud for RAW idea and Xavier for beta testing 2.2
