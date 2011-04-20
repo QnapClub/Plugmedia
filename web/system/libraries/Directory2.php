@@ -530,7 +530,7 @@ class CORE_Directory2 {
 
 	private function thumbnailSizeGen($thumbaddr)
 	{
-		if (is_file($thumbaddr))
+		if (is_file($thumbaddr) && filesize($thumbaddr)>0)
 		{
 			list($width, $height, $type, $attr) = @getimagesize($thumbaddr);
 			if ($width > $height)
