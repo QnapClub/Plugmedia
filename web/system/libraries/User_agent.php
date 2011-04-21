@@ -46,7 +46,7 @@ class CORE_User_agent {
 			}
 		}
 		
-		log_message('debug', "User Agent Class Initialized");
+	
 	}
 	
 	function _load_agent_file()
