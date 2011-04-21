@@ -50,10 +50,6 @@ else
 define ('FORCE_SSL',$FORCE_SSL);
 define ('HTTPD_URL',$protocol."://127.0.0.1".$contact_port."/cgi-bin/plugmedia/");
 
-define('SMALLTHUMB_HEIGHT',$configDB->getValue('SMALLTHUMB_HEIGHT'));
-define('SMALLTHUMB_WIDTH',$configDB->getValue('SMALLTHUMB_WIDTH'));
-define('NORMALTHUMB_HEIGHT',$configDB->getValue('PICTURE_MAX_HEIGHT'));
-define('NORMALTHUMB_WIDTH',$configDB->getValue('PICTURE_MAX_WIDTH'));
 
 require(BASEPATH.'core/common'.EXT);
 set_error_handler('_exception_handler');
@@ -79,6 +75,10 @@ if (!$DB->connexionbd())
 $CONFIGDB =& load_class('ConfigLoader');
 $db_config = $CONFIGDB->getDbConfig();
 
+define('SMALLTHUMB_HEIGHT',$CONFIGDB->getValue('SMALLTHUMB_HEIGHT'));
+define('SMALLTHUMB_WIDTH',$CONFIGDB->getValue('SMALLTHUMB_WIDTH'));
+define('NORMALTHUMB_HEIGHT',$CONFIGDB->getValue('PICTURE_MAX_HEIGHT'));
+define('NORMALTHUMB_WIDTH',$CONFIGDB->getValue('PICTURE_MAX_WIDTH'));
 
 
 $CFG =& load_class('Config');
