@@ -64,10 +64,10 @@ if (isset($argc))
 
 	
 
+	exec("chmod -R 0777 ".ROOTPATH."/thumb/");
+	exec("chmod -R 0777 ".ROOTPATH."/system/logs/");
 
 
-
-	
 
 
 }
