@@ -29,6 +29,8 @@ var PM = {
 	// get the page URL
 		if(typeof(check_indexing) !== 'undefined') 
 			clearInterval(check_indexing);
+		if(typeof(check_queue_d) !== 'undefined') 	
+			clearInterval(check_queue_d);
 		
 		if (typeof(jwplayer) !== 'undefined' && jwplayer('mediaspace') != null) 
 		{
@@ -82,17 +84,16 @@ var PM = {
 	
 
 	resetButtonBubblePopup: function () {
-		$('#button_thumb > .ui-button-text').RemoveBubblePopup();
-		$('#button_thumb_list> .ui-button-text').RemoveBubblePopup();
-		$('#button_list> .ui-button-text').RemoveBubblePopup();
 
-		$('#button_slideshow > .ui-button-text').RemoveBubblePopup();
-		$('#button_cooliris> .ui-button-text').RemoveBubblePopup();
-		$('#button_radio> .ui-button-text').RemoveBubblePopup();
-		$('#button_watchdir_subscribe > .ui-button-text').RemoveBubblePopup();
-		$('#button_watchdir> .ui-button-text').RemoveBubblePopup();
-		
-	
+		$(".tipsy").remove();
+
+		$('#button_thumb').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+		$('#button_list').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+		$('#button_slideshow').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+		$('#button_cooliris').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+		$('#button_radio').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+		$('#button_watchdir_subscribe').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+		$('#button_watchdir').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
 	
 		
 	},
@@ -394,20 +395,14 @@ var PM = {
 			}).bind("click",function(){ PicLensLite.start({feedUrl:$(this).attr("value")}); });		
 
 
-						
-		if (!$('#button_thumb > .ui-button-text').HasBubblePopup())
-		{
-			// ------- tooltips 					
-			$('#button_thumb > .ui-button-text').CreateBubblePopup({  innerHtml: $('#button_thumb').attr("ref"), themePath: PM_config.url_img+'/bubble_theme' ,themeName:'all-black'});
-			$('#button_thumb_list> .ui-button-text').CreateBubblePopup({innerHtml: $('#button_thumb_list').attr("ref"), themePath: PM_config.url_img+'/bubble_theme' ,themeName:'all-black'});
-			$('#button_list> .ui-button-text').CreateBubblePopup({ innerHtml: $('#button_list').attr("ref"), themePath: PM_config.url_img+'/bubble_theme' ,themeName:'all-black'});
-			$('#button_slideshow> .ui-button-text').CreateBubblePopup({  innerHtml: $('#button_slideshow').attr("ref"), themePath: PM_config.url_img+'/bubble_theme' ,themeName:'all-black'});
-			$('#button_cooliris> .ui-button-text').CreateBubblePopup({  innerHtml: $('#button_cooliris').attr("ref"), themePath: PM_config.url_img+'/bubble_theme' ,themeName:'all-black'});
-			$('#button_radio> .ui-button-text').CreateBubblePopup({  innerHtml: $('#button_radio').attr("ref"), themePath: PM_config.url_img+'/bubble_theme' ,themeName:'all-black'});
-			$('#button_watchdir_subscribe> .ui-button-text').CreateBubblePopup({  innerHtml: $('#button_watchdir_subscribe').attr("ref"), themePath: PM_config.url_img+'/bubble_theme' ,themeName:'all-black'});		
-			$('#button_watchdir> .ui-button-text').CreateBubblePopup({ innerHtml: $('#button_watchdir').attr("ref"), themePath: PM_config.url_img+'/bubble_theme' ,themeName:'all-black'});
 
-		}
+			$('#button_thumb').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+			$('#button_list').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+			$('#button_slideshow').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+			$('#button_cooliris').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+			$('#button_radio').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+			$('#button_watchdir_subscribe').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
+			$('#button_watchdir').tipsy({fade: true, gravity: $.fn.tipsy.autoNS, title: 'ref', fade: true});
 		
 		
 	},

@@ -61,7 +61,7 @@
 	<script type="text/javascript" src="{$adresse_js}/jquery/jquery.queue.min.js"></script>  	
 	<script type="text/javascript" src="{$adresse_js}/jquery/jquery.validate.min.js"></script>  	
 	<script type="text/javascript" src="{$adresse_js}/jquery/jquery.growl.min.js"></script>  
- 	<script type="text/javascript" src="{$adresse_js}/jquery/jquery.bubblepopup.v2.3.1.min.js"></script>   
+ 	<script type="text/javascript" src="{$adresse_js}/jquery/jquery.tipsy.js"></script>   
     <script type="text/javascript" src="{$adresse_js}/jquery/jquery.tag.editor.js"></script>
     <script type="text/javascript" src="{$adresse_js}/jquery/jquery.jeditable.mini.js"></script>
 	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
