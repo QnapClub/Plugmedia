@@ -61,7 +61,8 @@ class CORE_Metadata {
 			return false;
 			exit();
 		}
-		exec ("/opt/bin/dcraw -e -c ".$this->path.$this->filename." > ".BASEPATH."_cache/thumb/".$target_name);
+		exec ('/opt/bin/dcraw -e -c "'.$this->path.$this->filename.'" > "'.BASEPATH.'_cache/thumb/'.$target_name.'"');
+		log_message('DEBUG','/opt/bin/dcraw -e -c "'.$this->path.$this->filename.'" > "'.BASEPATH.'_cache/thumb/'.$target_name.'"');
 		$exif_data = $this->saveExifData(iconv("UTF-8","UTF-8//IGNORE",BASEPATH."_cache/thumb/".$target_name));	
 
 		if (array_key_exists('str_columns',$exif_data))
