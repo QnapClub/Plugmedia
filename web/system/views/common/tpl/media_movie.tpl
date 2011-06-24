@@ -34,7 +34,7 @@
 
 {else}
     {if $user_info.can_convert_movie eq 1 && $ffmpeg_lib_support}
-        <div id="information_message">This movie is not ready for browser playback, you can convert it. <br />This operation can takes up to XX mins<br /><br /><button class="convert" id="convert_btn">Convert</button><br /></div><br /><br /><br />
+        <div id="information_message">This movie is not ready for browser playback, you can convert it. <br />This operation can takes up to XX mins<br /><br /><button class="convert" id="convert_btn">Please Wait ...</button><br /></div><br /><br /><br />
         
 <div id="dialog-confirm" title="Convert Movie?" style="display:none">
 	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Converting movie can slow the system. <br />Are you sure?</p>
@@ -64,15 +64,7 @@
 
 $(function() {
 
-$( "#read_next" ).button( { icons: { primary: "icon_repeat_next" }, text: false } )
-				 .click(function(){
-					if (!$(this).is(':checked'))
-					{
-						$.cookie('pm_repeatnext', '0', { expires: 365});
-					}
-					else
-						$.cookie('pm_repeatnext', '1', { expires: 365});
-					});
+PM.readNextSong();
 
 
 
@@ -94,13 +86,7 @@ $( "#read_next" ).button( { icons: { primary: "icon_repeat_next" }, text: false 
 			height:200,
 			modal:true,
 			buttons: {
-				"Convert": function() {
-					$("#dialog_ok_convert").dialog('open');
-					startCheck();
-					$('#convert_btn > .ui-button-text').html("Generate in progress");
-					
-					$( this ).dialog( "close" );
-				},
+				"Convert": function () { convertFile() },
 				Cancel: function() {
 					$( this ).dialog( "close" );
 				}
@@ -113,10 +99,66 @@ $( "#read_next" ).button( { icons: { primary: "icon_repeat_next" }, text: false 
 $("#convert_btn").button().click(function() {
 	$("#dialog-confirm").dialog('open');
 
-});
+}).button( "disable" );
+
+$.ajax({
+		  url: 'api.php',
+		  data: "ac=get_message_queue&id={$current_media.file_id}",
+		  type: "GET",
+		  dataType: "json",
+		
+		  success: function(data) {
+				if (data.converted)
+					transformButtonToInProgress();
+				else 
+				{
+					if (data.emptyqueue)
+					{
+						$('#convert_btn').button().button('option', 'label', 'Convert movie');
+						$("#convert_btn").button().button("enable");	
+					}
+				}
+		  }
+		});
 
 
-function startCheck()
+function convertFile()
+{
+
+
+	alert("Convert file with {$current_media.file_id} ");
+	$("#dialog_ok_convert").dialog('open');
+					
+	$.ajax({
+	  url: 'api.php',
+	  data: "ac=add_movie_to_queue&id={$current_media.file_id}",
+	  type: "GET",
+	  dataType: "json"
+	});
+				
+	check_queue_d = startCheck( {$current_media.file_id} );
+	transformButtonToInProgress();
+	$( this ).dialog( "close" );
+	
+}
+
+function transformButtonToInProgress()
+{
+	$('#convert_btn').button().button('option', 'label', 'Generate in progress');
+	$("#convert_btn").button().button("disable");	
+}
+
+
+function transformButtonToFinished()
+{
+	$('#convert_btn').button().button('option', 'label', 'Finished, please wait');
+	$("#convert_btn").button().button("disable");
+	alert("Need refreshing this page!!");		
+}
+
+
+
+function startCheck(id_file)
 {
 
 	var check_queue_done = setInterval(function()
@@ -124,25 +166,26 @@ function startCheck()
 	
 		$.ajax({
 		  url: 'api.php',
-		  data: "ac=get_message_queue",
+		  data: "ac=get_message_queue&id="+id_file,
 		  type: "GET",
 		  dataType: "json",
 		
 		  success: function(data) {
 			
 				if (data.converted)
-					alert("running");
+					transformButtonToInProgress();
 				else 
 				{
 					if (data.emptyqueue);
 					{
-						alert('clear Interval');
 						clearInterval(check_queue_done);
+						transformButtonToFinished();
 					}
 				}
 		  }
 		});
 	}, 2000);	
+	return check_queue_done;
 
 }
 

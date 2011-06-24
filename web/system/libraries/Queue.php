@@ -65,7 +65,7 @@ class CORE_Queue {
 		
 		// perform queue name until END
 		if($this->queueIsRunning($name_queue)) {
-			echo "Already running.\n";
+			log_message('debug', "QUEUE ".$name_queue." already running"); ".\n";
 			exit;
 		}
 		else {
@@ -161,6 +161,10 @@ class CORE_Queue {
 		return $this->processed;	
 	}
 	
+	public function isItemInQueue($id, $namequeue)
+	{
+			
+	}
 
 	
 	

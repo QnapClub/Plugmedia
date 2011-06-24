@@ -12,7 +12,7 @@
 
 require_once 'system/core/frontcontroller.php';
 
-
+exec('/usr/local/apache/bin/php -c /etc/config/php.ini  '.ROOTPATH.'/performQueue.php > /dev/null &'); 
 
 loadHelper ('utility');
 loadHelper ('follower');

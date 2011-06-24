@@ -43,3 +43,16 @@ ALTER TABLE files ADD COLUMN mobile_version text;
 ------------------------------------
 INSERT INTO sys_conf_settings (conf_group, conf_key, conf_value , conf_default,enable) VALUES ( 0, 'SMALLTHUMB_WIDTH', '', '100', 1);
 INSERT INTO sys_conf_settings (conf_group,conf_key,conf_value,conf_default,enable) VALUES ( 0, 'SMALLTHUMB_HEIGHT', '', '100', 1);
+
+
+------------------------------------
+-- NEW TABLE FOR MOVIE EXTRACT
+------------------------------------
+CREATE TABLE file_movie (file_id integer UNIQUE, status integer, information character varying);
+
+
+ALTER TABLE public.file_movie OWNER TO plugmedia;
+ALTER TABLE ONLY file_movie
+    ADD CONSTRAINT file_movie_file_id_key UNIQUE (file_id);
+ALTER TABLE ONLY file_movie
+    ADD CONSTRAINT file_movie_fileid FOREIGN KEY (file_id) REFERENCES files(id) ON DELETE CASCADE;

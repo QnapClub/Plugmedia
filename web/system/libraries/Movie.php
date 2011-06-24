@@ -68,6 +68,7 @@ class CORE_Movie {
 		global $DB;
 		if ($this->ffmpeg)
 		{
+			$DB->query("INSERT INTO file_movie VALUES ('".$this->movie_id."', '0','')",'performMovieEncoding');	
 			// create directory for Movie if not existing
 			loadHelper ('filesys');
 			
@@ -106,6 +107,13 @@ class CORE_Movie {
 			$string_complete = substr($string_complete,0,strlen($string_complete)-1);
 			
 			$DB->query("UPDATE files SET $string_complete WHERE id = '".$this->movie_id."' ","");
+			
+			if (!$result_mobile || !$result_flv)
+				$status_error = 2;		// error when converting
+			else
+				$status_error = 1;
+			$DB->query('UPDATE file_movie SET status = '.$status_error.' WHERE file_id = '.$this->movie_id,'performMovieEncoding');		
+
 			
 			return $array;
 			
@@ -149,7 +157,7 @@ class CORE_Movie {
 	private function startMobileConversion()
 	{
 		$target_extension = 'mp4';
-		$command = FFMPEG." -y -i '".$this->short_path."' -b 300k -ar 22050 -ab 56k -qmin 6 -qmax 12 -f mp4 '".$this->thumb_complete_path.".".$target_extension."'";
+		$command = FFMPEG." -y -i '".$this->short_path."' -b 300k -ar 22050 -ab 56k -qmin 6 -qmax 12 -f mp4 '".$this->thumb_complete_path.".".$target_extension."'  &> /tmp/ffmpeg_convert.log";
 		
 		//echo $command."<br>";
 		$this->sendCommand($command);
@@ -163,7 +171,7 @@ class CORE_Movie {
 	private function startFlvConversion()
 	{
 		$target_extension = 'flv';
-		$command = FFMPEG." -y -i '".$this->short_path."' -b 300k -ar 22050 -ab 56k -qmin 6 -qmax 12 -f flv '".$this->thumb_complete_path.".".$target_extension."'";
+		$command = FFMPEG." -y -i '".$this->short_path."' -b 300k -ar 22050 -ab 56k -qmin 6 -qmax 12 -f flv '".$this->thumb_complete_path.".".$target_extension."' &> /tmp/ffmpeg_convert.log";
 		
 		log_message('debug', "command : ".$command);
 		

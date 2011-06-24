@@ -11,7 +11,17 @@
 
 var PM = {
 
+	readNextSong: function (){
 
+		$( "#read_next" ).button( { icons: { primary: "icon_repeat_next" }, text: false } )
+			.click(function(){
+				if (!$(this).is(':checked'))
+					$.cookie('pm_repeatnext', '0', { expires: 365});
+				else
+					$.cookie('pm_repeatnext', '1', { expires: 365});
+			});		
+		
+	},
 	
 
 	growlNotification: function (icon, message, title){

@@ -273,7 +273,7 @@ function syncUsers()
 	global $DB, $ERROR;
 	// first try to read configuration file 
 	$array_user_smb = getUserFromSmbConf();
-	$val = print_r($array_user_smb);
+	//$val = print_r($array_user_smb);
 	log_message('debug', $val);
 	
 	// first doing our stuff in plugmedia
