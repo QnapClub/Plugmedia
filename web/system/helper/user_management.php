@@ -233,14 +233,13 @@
 			return false;
 			exit();		
 		}
-		
-		if ($id_edited == 2 && !in_array('Guest',$groups))
+		if ($id_edited == 2 && !in_array('2',$groups))	// user guest must stay in group guest
 		{
 			$ERROR->addError('GUESTGROUPUSRGUEST', 'Error');
 			return false;
 			exit();			
 		}
-		if ($id_edited == 1 && !in_array('Administrator',$groups))
+		if ($id_edited == 1 && !in_array('1',$groups))// user admin must stay in group admin
 		{
 			$ERROR->addError('ADMINGROUPUSRADMIN', 'Error');
 			return false;
