@@ -232,7 +232,6 @@ switch ($_GET['ac'])
 	break; 
 	case 'getFileContent':
 		// first security, is the user loggedin?
-		loadHelper ('ressource');
 		if ($is_loggedin)
 		{
 			loadHelper ('ressource');
