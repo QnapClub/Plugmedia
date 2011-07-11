@@ -18,16 +18,22 @@
 	'wmode':'opaque',
 	'stretching':'fill',
 	'provider':'http',
-	'autostart':'true',
-	events: {
+	'autostart':'true'/*,
+	/*events: {
 		onComplete: function(evt) {
 			
 			if ($.cookie('pm_repeatnext'))
 				PM.loadingPage($("#right_link").attr('href'));
 			
 		}
-	}	
+	}*/	
   });
+  
+	jwplayer().onComplete(function(evt) { 
+  		if ($.cookie('pm_repeatnext'))
+			PM.loadingPage($("#right_link").attr('href')); 
+	});
+
 </script>
 
 
@@ -57,16 +63,15 @@
     {/if}
 {/if}<br />
 
+<div id="movie_reference" style="display:none">{$current_media.file_id}</div>
 
 
 
 <script type="text/javascript">
 
-$(function() {
+jQuery(document).ready(function($) {
 
 PM.readNextSong();
-
-
 
 
 	$( "#dialog_ok_convert" ).dialog({
@@ -101,9 +106,10 @@ $("#convert_btn").button().click(function() {
 
 }).button( "disable" );
 
+
 $.ajax({
 		  url: 'api.php',
-		  data: "ac=get_message_queue&id={$current_media.file_id}",
+		  data: "ac=get_message_queue&id="+$('#movie_reference').text(),
 		  type: "GET",
 		  dataType: "json",
 		
@@ -124,19 +130,16 @@ $.ajax({
 
 function convertFile()
 {
-
-
-	alert("Convert file with {$current_media.file_id} ");
 	$("#dialog_ok_convert").dialog('open');
 					
 	$.ajax({
 	  url: 'api.php',
-	  data: "ac=add_movie_to_queue&id={$current_media.file_id}",
+	  data: "ac=add_movie_to_queue&id="+$('#movie_reference').text(),
 	  type: "GET",
 	  dataType: "json"
 	});
 				
-	check_queue_d = startCheck( {$current_media.file_id} );
+	//check_queue_d = startCheck( {$current_media.file_id} );
 	transformButtonToInProgress();
 	$( this ).dialog( "close" );
 	
@@ -157,16 +160,14 @@ function transformButtonToFinished()
 }
 
 
-
 function startCheck(id_file)
 {
-
 	var check_queue_done = setInterval(function()
 	{
 	
 		$.ajax({
 		  url: 'api.php',
-		  data: "ac=get_message_queue&id="+id_file,
+		  data: "ac=get_message_queue&id="+$('#movie_reference').text(),
 		  type: "GET",
 		  dataType: "json",
 		
@@ -188,6 +189,7 @@ function startCheck(id_file)
 	return check_queue_done;
 
 }
+
 
 })
 </script>
