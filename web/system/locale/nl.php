@@ -6,6 +6,9 @@
 * @license http://creativecommons.org/licenses/by-nc-nd/2.0/be/  Attribution-Noncommercial-No Derivative Works 2.0 Belgium
 * QNAP Systems, Inc is authorize to distribute and transmit the work
 *
+* Credits:
+* 	- Leviter - Marcel van den Brink
+*
 * Minimum Requirement: PHP 5
 */
 
