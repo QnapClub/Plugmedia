@@ -42,12 +42,8 @@ var PM = {
 		if(typeof(check_queue_d) !== 'undefined') 	
 			clearInterval(check_queue_d);
 		
-		if (typeof(jwplayer) !== 'undefined' && jwplayer('mediaspace') != null) 
-		{
-			jwplayer('mediaspace').stop();
-			delete jwplayer('mediaspace');
-			delete jwplayer;
-		}
+		PM.killJWPlayerLoading();
+		
 		var url = target;
 		// Show modal Loading window
 		PM.createLoadingModalWin();
@@ -68,6 +64,18 @@ var PM = {
 		});
 		
 
+	},
+
+	killJWPlayerLoading: function() {
+
+		if (typeof(jwplayer) !== 'undefined' && jwplayer('mediaspace') != null) 
+		{
+			jwplayer('mediaspace').stop();
+			delete jwplayer('mediaspace');
+			delete jwplayer;
+		}
+		
+		
 	},
 	
 	updatePagePart: function(data) {
@@ -510,7 +518,9 @@ var PM = {
 	
 		
 
-		
+		$('.btn_download').live('click', function() {
+		 	PM.killJWPlayerLoading();
+		});	
 
 
 
