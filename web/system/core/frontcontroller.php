@@ -146,13 +146,13 @@ else
 // -------  END LANGUAGE DETECTION --------------------------------------------------------
 
 
-
+$user_info = $SESSION->getUser_informations();
+$SMARTY->assign("user_info",$user_info);
+	
 if ($is_loggedin)
-{
-	$user_info = $SESSION->getUser_informations();
-	$SMARTY->assign("user_info",$user_info);
 	$SMARTY->assign("loggedin",$is_loggedin);
-}
+else
+	$SMARTY->assign("loggedin",false);
 
 $SMARTY->assign("ffmpeg_lib_support",FFMPEG_LIB);
 
