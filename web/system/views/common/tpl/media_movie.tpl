@@ -41,31 +41,30 @@
 {else}
     {if $user_info.can_convert_movie eq 1 && $ffmpeg_lib_support}
         {if $current_media.movie_detail.information.flv_conversion eq 2}
-          <div id="error_message">Impossible to convert movie, contact an administrator to more details.<br /><br /><br /><br /></div><br /><br /><br />
+          <div id="error_message">{t}IMPOSSIBLECONVERT{/t}<br /><br /><br /><br /></div><br /><br /><br />
           
         {else}
-        {$current_media.filesize}
-            <div id="information_message">This movie is not ready for browser playback, you can convert it. <br />This operation can takes up to {$current_media.filesize|movieconverttime} mins<br /><br /><button class="convert" id="convert_btn">Please Wait ...</button><br /></div><br /><br /><br />
+            <div id="information_message">{t}CONVERTIT{/t} <br />{t time=$current_media.filesize|movieconverttime}OPERATIONCANTAKESUP{/t}<br /><br /><button class="convert" id="convert_btn">{t}PLEASE_WAIT{/t}</button><br /></div><br /><br /><br />
             
             <div id="dialog-confirm" title="Convert Movie?" style="display:none">
-                <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Converting movie can slow the system. <br />Are you sure?</p>
+                <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>{t}AREYOUSURE{/t}</p>
             </div>
             
             <div id="dialog_ok_convert" title="Movie convertion" style="display:none">
                 <p>
                     <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
-                    Your movie is added to the queue.
+                   {t}ADDEDTOQUEUE{/t}
                 </p>
-                <p>
+                <!--<p>
                     You will get a message when your movie is ready to play.</b>.
-                </p>
+                </p>-->
             </div>
 
 	{/if}
         
         
     {else}
-        <div id="information_message">This movie is not ready for browser playback, ask the administrator to convert it</div>
+        <div id="information_message">{t}NOTREADYTOPLAYBACK{/t}</div>
     {/if}
 {/if}<br />
 
@@ -96,9 +95,10 @@ PM.readNextSong();
 			height:200,
 			modal:true,
 			buttons: {
-				"Convert": function () { convertFile() },
+				"Convert": function () { convertFile(); $( "#dialog_ok_convert" ).dialog("close");$( this ).dialog( "close" ); },
 				Cancel: function() {
 					$( this ).dialog( "close" );
+					
 				}
 			}
 		});
@@ -125,7 +125,7 @@ $.ajax({
 				{
 					if (data.emptyqueue)
 					{
-						$('#convert_btn').button().button('option', 'label', 'Convert movie');
+						$('#convert_btn').button().button('option', 'label', '{t}CONVERT{/t}');
 						$("#convert_btn").button().button("enable");	
 					}
 				}
@@ -161,7 +161,7 @@ function transformButtonToFinished()
 {
 	$('#convert_btn').button().button('option', 'label', 'Finished, please wait');
 	$("#convert_btn").button().button("disable");
-	PM.loadingPage("display.php?dir={$current_dir.link_dir}&file={$current_media.file_id}&ref={$smarty.get.ref}&view=inline");
+	PM.loadingPage("display.php?dir={$current_dir.link_dir}&file="+$('#movie_reference').text()+"&ref={$smarty.get.ref}&view=inline");
 }
 
 

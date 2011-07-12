@@ -68,21 +68,21 @@ class CORE_Movie {
 		global $DB;
 		if ($this->ffmpeg)
 		{
-			$DB->query("SELECT information FROM file_movie WHERE file_movie = ".$this->movie_id." ","performMovieEncoding");
+			$DB->query("SELECT information FROM file_movie WHERE file_id = ".$this->movie_id." ","performMovieEncoding");
 			$return = $DB->fetchrow();
 			if (!$return || $return == "")
 			{
-				$array_result['flv_conversion'] = 0;
-				$array_result['movie_conversion'] = 0;
-				$array_result['thumb_extraction'] = 0;
+				//$array_result['flv_conversion'] = 0;
+				//$array_result['movie_conversion'] = 0;
+				//$array_result['thumb_extraction'] = 0;
 				$DB->query("INSERT INTO file_movie VALUES ('".$this->movie_id."', '0','')",'performMovieEncoding');	
 			}
 			else
 			{
 				$array_result = unserialize($return);	
-				if (!array_key_exists('flv_conversion',$array_result)) $array_result['flv_conversion'] = 0;
-				if (!array_key_exists('movie_conversion',$array_result)) $array_result['movie_conversion'] = 0; 
-				if (!array_key_exists('thumb_extraction',$array_result)) $array_result['thumb_extraction'] = 0;
+				//if (!array_key_exists('flv_conversion',$array_result)) $array_result['flv_conversion'] = 0;
+				//if (!array_key_exists('movie_conversion',$array_result)) $array_result['movie_conversion'] = 0; 
+				//if (!array_key_exists('thumb_extraction',$array_result)) $array_result['thumb_extraction'] = 0;
 			}
 			// create directory for Movie if not existing
 			loadHelper ('filesys');
@@ -278,16 +278,18 @@ class CORE_Movie {
 		$DB->query("select * from file_movie LEFT JOIN queue ON ref_id = $id_movie AND queue_name='movie_convert'  where file_id = $id_movie","currentlyEncoding");
 		if ($result = $DB->fetchrow())
 		{
-			if ($ref_id != $id_movie)
+
+			if ($result['ref_id'] != $id_movie)
 			{
 				$array_details = unserialize($result['information']);
-				if ($array_details[$type] == 0)
+				
+				if (is_array($array_details) && array_key_exists($type,$array_details) && $array_details[$type] == 0)
 					return true;
 				else
 					return false;
 			}	
 			else
-				return false;
+				return true;
 		}
 		else
 			return false; 	// queue is empty and there is atually no conversion on the movie

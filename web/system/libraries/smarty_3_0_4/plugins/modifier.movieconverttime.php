@@ -10,7 +10,7 @@
  */
 function smarty_modifier_movieconverttime($string)
 {
-    return $string;
+   return intval($string/8000000);
 } 
 
 ?>

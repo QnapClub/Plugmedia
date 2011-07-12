@@ -334,6 +334,19 @@ $lang = array(
 'THUMBTRANS_REPO_EXPLAIN'		=>'This repository contains all thumbnails and transcoded movies (Transcoding is the process of taking a video file and changing it to a different format or bitrate to allow mobile device and web browser to display it). You can find this directory under Plugmedia install /thumb. Drop this repository will remove all files.',
 'THUMBNAIL_REPO_DROP'			=>'Drop Repository',
 
+
+
+
+
+//********* MOVIE ENCODING ***************
+'IMPOSSIBLECONVERT'		=>'Impossible to convert movie, contact an administrator for more details.',
+'CONVERTIT'				=>'This movie is not ready for browser playback, you can convert it..',
+'OPERATIONCANTAKESUP'	=>'This operation can takes up to %1 min(s)',
+'AREYOUSURE'			=>'Are you sure you want to convert this file?',
+'ADDEDTOQUEUE'			=>'Your movie is added to the queue.',
+'NOTREADYTOPLAYBACK'	=>'This movie is not ready for browser playback, ask the administrator to convert it.',
+'CONVERT'				=>'Convert Movie',
+
 );
 
 

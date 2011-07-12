@@ -278,6 +278,43 @@ $lang = array(
 'PROFILE_EDITED' 				=> 'Votre profile a été édité', 
 'PLUGINS' 						=> 'Plugins', 
 
+'GROUPEDITED' 					=> 'Group %1 Edited', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'DISPALTTHUMVIEW' 				=> 'Display alternatethumb view', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'WATCHDIR' 						=> 'Be notified on each update for this directory', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'PLUGINSINSTALLINFO' 				=> 'To install a new plugin, unzip the plugin in your web directory (plugmedia/system/plugins/)', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'ENABLEDPLUGIN' 					=> 'Enabled Plugin', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'DISABLEDPLUGIN' 					=> 'Disabled Plugin', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'PLUGINNAME' 					=> 'Plugin Name', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'INSTALL_PATH' 					=> 'Installation path', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'VERSION' 						=> 'Version', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'URL' 						=> 'Url', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'AUTHORWEBSITE' 					=> 'Author Website', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'LICENSE' 						=> 'License', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'DESCRIPTION' 					=> 'Description', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'ENABLEPLUGIN' 					=> 'Enable Plugin', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'DISABLEPLUGIN' 					=> 'Disable Plugin', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'LOADING' 						=> 'Loading', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'REMOVETAGCONFIRM' 				=> 'Do you really want to remove the tag?', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'REMOVETAGTITLE' 					=> 'Remove tag', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'DOUBLECLICKEDIT' 				=> 'Double Click to edit...', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'CANMANAGEMETADATA' 				=> 'Can manage metadata', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'THUMBNAIL' 					=> 'Thumbnails', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'MINIATURETHUMB' 					=> 'Small thumbnail size (H x W)', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'MINIATURETHUMB_EXPLAIN' 			=> 'Small thumbnail are used on picture list for pictures, movies and Album song.', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'NORMALTHUMB' 					=> 'Normal thumbnail size (H x W)', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'NORMALTHUMB_EXPLAIN' 				=> 'Normal thumbnail are used on picture detail.', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'THUMBANDTRANSCODING' 				=> 'Thumbnail & Transcoding', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'THUMBTRANS_REPO' 				=> 'Thumbnail and Transcoding repository', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'THUMBTRANS_REPO_EXPLAIN' 			=> 'This repository contains all thumbnails and transcoded movies (Transcoding is the process of taking a video file and changing it to a different format or bitrate to allow mobile device and web browser to display it). You can find this directory under Plugmedia install /thumb. Drop this repository will remove all files.', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'THUMBNAIL_REPO_DROP' 				=> 'Drop Repository', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'IMPOSSIBLECONVERT' 				=> 'Impossible to convert movie, contact an administrator for more details.', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'CONVERTIT' 					=> 'This movie is not ready for browser playback, you can convert it..', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'OPERATIONCANTAKESUP' 				=> 'This operation can takes up to %1 min(s)', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'AREYOUSURE' 					=> 'Are you sure you want to convert this file?', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'ADDEDTOQUEUE' 					=> 'Your movie is added to the queue.', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'NOTREADYTOPLAYBACK' 				=> 'This movie is not ready for browser playback, ask the administrator to convert it.', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+'CONVERT' 						=> 'Convert Movie', // PLEASE REMOVE THIS COMMENT AFTER TRANSLATE
+
 
 );
 
