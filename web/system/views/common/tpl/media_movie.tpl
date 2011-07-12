@@ -40,22 +40,28 @@
 
 {else}
     {if $user_info.can_convert_movie eq 1 && $ffmpeg_lib_support}
-        <div id="information_message">This movie is not ready for browser playback, you can convert it. <br />This operation can takes up to XX mins<br /><br /><button class="convert" id="convert_btn">Please Wait ...</button><br /></div><br /><br /><br />
-        
-<div id="dialog-confirm" title="Convert Movie?" style="display:none">
-	<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Converting movie can slow the system. <br />Are you sure?</p>
-</div>
+        {if $current_media.movie_detail.information.flv_conversion eq 2}
+          <div id="error_message">Impossible to convert movie, contact an administrator to more details.<br /><br /><br /><br /></div><br /><br /><br />
+          
+        {else}
+        {$current_media.filesize}
+            <div id="information_message">This movie is not ready for browser playback, you can convert it. <br />This operation can takes up to {$current_media.filesize|movieconverttime} mins<br /><br /><button class="convert" id="convert_btn">Please Wait ...</button><br /></div><br /><br /><br />
+            
+            <div id="dialog-confirm" title="Convert Movie?" style="display:none">
+                <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Converting movie can slow the system. <br />Are you sure?</p>
+            </div>
+            
+            <div id="dialog_ok_convert" title="Movie convertion" style="display:none">
+                <p>
+                    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+                    Your movie is added to the queue.
+                </p>
+                <p>
+                    You will get a message when your movie is ready to play.</b>.
+                </p>
+            </div>
 
-<div id="dialog_ok_convert" title="Movie convertion" style="display:none">
-	<p>
-		<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
-		Your movie have added to the queue.
-	</p>
-	<p>
-		You will get a message when your movie is ready to play.</b>.
-	</p>
-</div>
-
+	{/if}
         
         
     {else}
@@ -65,8 +71,7 @@
 
 <div id="movie_reference" style="display:none">{$current_media.file_id}</div>
 
-
-
+{if $current_media.movie_detail.information.flv_conversion neq 2}
 <script type="text/javascript">
 
 jQuery(document).ready(function($) {
@@ -139,7 +144,7 @@ function convertFile()
 	  dataType: "json"
 	});
 				
-	//check_queue_d = startCheck( {$current_media.file_id} );
+	check_queue_d = startCheck();
 	transformButtonToInProgress();
 	$( this ).dialog( "close" );
 	
@@ -156,11 +161,11 @@ function transformButtonToFinished()
 {
 	$('#convert_btn').button().button('option', 'label', 'Finished, please wait');
 	$("#convert_btn").button().button("disable");
-	alert("Need refreshing this page!!");		
+	PM.loadingPage("display.php?dir={$current_dir.link_dir}&file={$current_media.file_id}&ref={$smarty.get.ref}&view=inline");
 }
 
 
-function startCheck(id_file)
+function startCheck()
 {
 	var check_queue_done = setInterval(function()
 	{
@@ -194,3 +199,4 @@ function startCheck(id_file)
 })
 </script>
 
+{/if}

@@ -413,6 +413,14 @@ class CORE_Directory2 {
 			}
 		
 		}
+		
+		if (in_array(strtolower($this->specific_node_information['readable_type']), $configDB->getValue('EXTENSION_MOV_DISPLAYABLE')))
+		{
+			$this->database->query("SELECT * FROM file_movie WHERE file_id = '".$this->specific_node_information['file_id']."'","getSpecificNodeInformation");	
+			$this->specific_node_information['movie_detail'] = $this->database->fetchrow();
+			$this->specific_node_information['movie_detail']['information'] = unserialize($this->specific_node_information['movie_detail']['information']);
+		}
+		
 
 		// add comments on the file	
 		loadHelper ('comments');
@@ -563,6 +571,7 @@ class CORE_Directory2 {
 		$array['short_name_displayable'] = $this->cutLongFilename($fichier['filename']);
 		$array['short_name_formated'] = $fichier['filename'];
 		$array['last_modification_date'] = $fichier['timestamp_modification'];
+		$array['filesize'] = $fichier['filesize'];		
 
 		$array['smart_name'] = $fichier['smart_name'];
 		$array['smart_description'] = $fichier['smart_description'];

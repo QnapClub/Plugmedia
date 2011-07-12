@@ -68,7 +68,22 @@ class CORE_Movie {
 		global $DB;
 		if ($this->ffmpeg)
 		{
-			$DB->query("INSERT INTO file_movie VALUES ('".$this->movie_id."', '0','')",'performMovieEncoding');	
+			$DB->query("SELECT information FROM file_movie WHERE file_movie = ".$this->movie_id." ","performMovieEncoding");
+			$return = $DB->fetchrow();
+			if (!$return || $return == "")
+			{
+				$array_result['flv_conversion'] = 0;
+				$array_result['movie_conversion'] = 0;
+				$array_result['thumb_extraction'] = 0;
+				$DB->query("INSERT INTO file_movie VALUES ('".$this->movie_id."', '0','')",'performMovieEncoding');	
+			}
+			else
+			{
+				$array_result = unserialize($return);	
+				if (!array_key_exists('flv_conversion',$array_result)) $array_result['flv_conversion'] = 0;
+				if (!array_key_exists('movie_conversion',$array_result)) $array_result['movie_conversion'] = 0; 
+				if (!array_key_exists('thumb_extraction',$array_result)) $array_result['thumb_extraction'] = 0;
+			}
 			// create directory for Movie if not existing
 			loadHelper ('filesys');
 			
@@ -86,24 +101,38 @@ class CORE_Movie {
 				{
 					$string_complete .= " file_thumb_normal = '".$DB->protectString( $this->encodetoUTF8($result_flv))."' ,";	
 					$array['flv_path'] = $result_flv;
+					$array_result['flv_conversion'] = 1;
 				}
+				else
+					$array_result['flv_conversion'] = 2;
 			}
+
 			if ($mobile_convert)
 			{
 				if ($result_mobile = $this->startMobileConversion())
 				{
 					$string_complete .= " mobile_version = '".$DB->protectString( $this->encodetoUTF8($result_mobile))."' ,";	
 					$array['mobile_path'] = $result_mobile;
+					$array_result['movie_conversion'] = 1;
 				}
+				else
+					$array_result['movie_conversion'] = 2;
 			}
+
 			if ($extract_thumb)
 			{
 				if ($result_thumb = $this->startThumbGeneration())
 				{
 					$string_complete .= " file_thumb = '".$DB->protectString( $this->encodetoUTF8($result_thumb))."' ,";	
 					$array['thumb_path'] = $result_thumb;
+					$array_result['thumb_extraction'] = 1;
 				}
+				else
+					$array_result['thumb_extraction'] = 2;
 			}
+			
+			$comment = serialize($array_result);
+			
 			$string_complete = substr($string_complete,0,strlen($string_complete)-1);
 			
 			$DB->query("UPDATE files SET $string_complete WHERE id = '".$this->movie_id."' ","");
@@ -112,7 +141,7 @@ class CORE_Movie {
 				$status_error = 2;		// error when converting
 			else
 				$status_error = 1;
-			$DB->query('UPDATE file_movie SET status = '.$status_error.' WHERE file_id = '.$this->movie_id,'performMovieEncoding');		
+			$DB->query("UPDATE file_movie SET status = ".$status_error.", information = '".$comment."' WHERE file_id = ".$this->movie_id,'performMovieEncoding');		
 
 			
 			return $array;
@@ -241,6 +270,29 @@ class CORE_Movie {
 		setlocale(LC_CTYPE, 'en_US.utf8');
 		return iconv("UTF-8","UTF-8//IGNORE",$string);
 	}	
+	
+	
+	public function currentlyEncoding($id_movie, $type='flv_conversion')
+	{
+		global $DB;
+		$DB->query("select * from file_movie LEFT JOIN queue ON ref_id = $id_movie AND queue_name='movie_convert'  where file_id = $id_movie","currentlyEncoding");
+		if ($result = $DB->fetchrow())
+		{
+			if ($ref_id != $id_movie)
+			{
+				$array_details = unserialize($result['information']);
+				if ($array_details[$type] == 0)
+					return true;
+				else
+					return false;
+			}	
+			else
+				return false;
+		}
+		else
+			return false; 	// queue is empty and there is atually no conversion on the movie
+		
+	}
 	
 }
 

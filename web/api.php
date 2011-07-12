@@ -515,10 +515,10 @@ switch ($_GET['ac'])
 	break;
 
 	case 'get_message_queue':
-		//$val = rand(1, 20);
-		//if ($val!=15)
-		//	echo json_encode(array('converted'=>true, 'message'=>""));		// currently converting the movie $GET[id]
-		//else
+		$movie =& load_class('Movie');
+		if ($movie->currentlyEncoding($_GET['id'], 'flv_conversion'))
+			echo json_encode(array('converted'=>true, 'message'=>""));		// currently converting the movie $GET[id]
+		else
 			echo json_encode(array('emptyqueue'=>true, 'message'=>""));		// ended
 	break;	
 	
