@@ -56,3 +56,19 @@ ALTER TABLE ONLY file_movie
     ADD CONSTRAINT file_movie_file_id_key UNIQUE (file_id);
 ALTER TABLE ONLY file_movie
     ADD CONSTRAINT file_movie_fileid FOREIGN KEY (file_id) REFERENCES files(id) ON DELETE CASCADE;
+
+
+-----------------------------------
+-- NEW TABLE QUEUE
+-----------------------------------
+CREATE TABLE queue (
+    ref_id integer NOT NULL,
+    "action" character varying,
+    queue_name character varying,
+    created_time timestamp with time zone
+);
+
+ALTER TABLE public.queue OWNER TO plugmedia;
+
+ALTER TABLE ONLY queue
+    ADD CONSTRAINT prim_ref_id PRIMARY KEY (ref_id);
