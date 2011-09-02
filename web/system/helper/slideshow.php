@@ -18,7 +18,7 @@ function getSlideshowRss($dir,$sorting=false, $order=false)
 	$smarty->setRssFeed();
 	
 			
-	if(!$smarty->is_cached('rss_slideshow.tpl', "rss_slideshow_".$dir."_".$SESSION->getData('order')."_".$SESSION->getData('tris')))	// IS THERE A CACHE?
+	if(!$smarty->isCached('rss_slideshow.tpl', "rss_slideshow_".$dir."_".$SESSION->getData('order')."_".$SESSION->getData('tris')))	// IS THERE A CACHE?
 	{
 		$directory->setRoot($dir);
 		

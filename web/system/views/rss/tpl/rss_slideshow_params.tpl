@@ -28,7 +28,7 @@
 	captionBackgroundAlpha = ".75"
 	captionBackgroundColor = "0xFFFFFF"     
 	captionElements = "Header and Caption"
-	captionHeaderText = "{imageTitle}"
+	captionHeaderText = " { imageTitle } "
 	captionPadding = "5,5,5,5"
 	captionPosition = "Top"
 	captionTextAlignment = "Left"
