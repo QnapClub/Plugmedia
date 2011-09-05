@@ -53,9 +53,9 @@ CREATE TABLE file_movie (file_id integer UNIQUE, status integer, information cha
 
 ALTER TABLE public.file_movie OWNER TO plugmedia;
 ALTER TABLE ONLY file_movie
-    ADD CONSTRAINT file_movie_file_id_key UNIQUE (file_id);
+    ADD CONSTRAINT file_movie_file_id_key_u UNIQUE (file_id);
 ALTER TABLE ONLY file_movie
-    ADD CONSTRAINT file_movie_fileid FOREIGN KEY (file_id) REFERENCES files(id) ON DELETE CASCADE;
+    ADD CONSTRAINT file_movie_fileid_f FOREIGN KEY (file_id) REFERENCES files(id) ON DELETE CASCADE;
 
 
 -----------------------------------
@@ -72,3 +72,8 @@ ALTER TABLE public.queue OWNER TO plugmedia;
 
 ALTER TABLE ONLY queue
     ADD CONSTRAINT prim_ref_id PRIMARY KEY (ref_id);
+
+-----------------------------------
+-- MODIFY SYSCONF
+-----------------------------------
+ALTER TABLE ONLY sys_conf_settings ADD CONSTRAINT sys_conf_unique UNIQUE (conf_key);

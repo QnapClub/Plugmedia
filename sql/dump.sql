@@ -345,6 +345,7 @@ ALTER TABLE public.sys_conf_settings_conf_id_seq OWNER TO plugmedia;
 
 ALTER SEQUENCE sys_conf_settings_conf_id_seq OWNED BY sys_conf_settings.conf_id;
 
+ALTER TABLE ONLY sys_conf_settings ADD CONSTRAINT sys_conf_unique UNIQUE (conf_key);
 
 
 ----------------------------------------
