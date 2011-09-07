@@ -476,7 +476,7 @@ switch ($_GET['ac'])
 		if ($is_loggedin && $user_info['admin'])
 		{
 			loadHelper ('user_management');
-			if (editUser($_POST['id'],$_POST['name'],$_POST['pass'], $_POST['pass-cfrm'], $_POST['email'], $_POST['group_member'],$_POST['lang_value'], $_POST['can_read_com'], $_POST['can_post_com'], $_POST['can_manage_mtd'], $_POST['can_accessadmin']))
+			if (editUser($_POST['id'],$_POST['name'],$_POST['pass'], $_POST['change_pass'], $_POST['email'], $_POST['group_member'],$_POST['lang_value'], $_POST['can_read_com'], $_POST['can_post_com'], $_POST['can_manage_mtd'], $_POST['can_accessadmin']))
 			{
 				$tab['success'] = true;	
 				$tab['message'] = $ERROR->getNotFormatedError('USEREDITED',$_POST['login']);
