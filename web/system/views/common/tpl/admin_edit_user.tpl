@@ -64,7 +64,10 @@
             <label for="can_manage_mtd">{t}CANMANAGEMETADATA{/t}</label>
 			<input id="can_manage_mtd" type="checkbox" name="can_manage_mtd" {if $user_info.can_manage_metadata eq 1}checked="checked"{/if} class="ui-widget-content" />
          </p>
-
+        <p>
+            <label for="can_accessadmin">{t}ADMINACCESS{/t}</label>
+			<input id="can_accessadmin" type="checkbox" name="can_accessadmin" {if $user_info.admin_access eq 1}checked="checked"{/if} class="ui-widget-content" />
+         </p>
 
 
         <p>
