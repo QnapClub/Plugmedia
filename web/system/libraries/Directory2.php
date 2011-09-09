@@ -91,11 +91,14 @@ class CORE_Directory2 {
 					}
 					if (!array_key_exists('directory_id',$dir_ac))
 						$dir_ac['parent']="";
-					$prepare_string .= "parent||name LIKE '".$dir_ac['parent'].$dir_ac['name']."%'";
+					$prepare_string .= "parent||name LIKE '".$this->database->protectString($dir_ac['parent']).$this->database->protectString($dir_ac['name'])."%'";
 				}
 
 				$prepare_string .= ")";
 				$this->database->query("select * from directory where id='$id_root' $prepare_string","prepareDirectory");
+				
+					
+				
 				$result = $this->database->fetchrow();
 				
 				if ($id_root == $result['id'])
