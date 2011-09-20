@@ -13,8 +13,12 @@
 require_once 'system/core/frontcontroller.php';
 
 if (isset ($_POST['user']))
+{
 	$SESSION->login($_POST['user'], $_POST['password'], 'index.php');
-
+	header("Location:index.php");
+}else
+{
 
 $SMARTY->display_('login.tpl','login');
+}
 ?>

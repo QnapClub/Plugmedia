@@ -8,28 +8,19 @@
  	<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
    
 	<title>Plugmedi@</title>
-	<link rel="stylesheet" href="{$adresse_css}/jquery.mobile-1.0a4.1.css" />
+	<link rel="stylesheet" href="{$adresse_css}/jquery.mobile-1.0b2.css" />
+    <link href="{$adresse_css}/photoswipe.css" type="text/css" rel="stylesheet" />
    <link rel="apple-touch-icon" href="{$adresse_images}/jqtouch.png" />
    <link rel="apple-touch-startup-image" href="{$adresse_images}/jqt_startup.png" />
 	<link rel="apple-touch-icon-precomposed" href="{$adresse_images}/jqtouch.png">
     
     
-	<script src="{$adresse_js}/jquery-1.4.4.min.js"></script>
-<script src="{$adresse_js}/jquery-1.4.4.min.js"></script><script type="text/javascript" src="{$adresse_js}/jquery.mobile-1.0a4.1.min.js"></script>
-<script type="text/javascript">
-$(document).bind("mobileinit", function(){
-    $.extend($.mobile, {
-        loadingMessage: "Loading...",
-		pageLoadErrorMessage: "Error"
-    });
-    $.mobile.page.prototype.options.backBtnText = "&nbsp;";
-});
+	<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+    </script><script type="text/javascript" src="{$adresse_js}/jquery.mobile-1.0b2.min.js"></script>
+    <script type="text/javascript" src="{$adresse_js}/klass.min.js"></script>
+	<script type="text/javascript" src="{$adresse_js}/code.photoswipe.jquery-2.1.0.min.js"></script>
 
 
-
-
-</script>	
-	<script type="text/javascript" src="{$adresse_js}/jquery.mobile-1.0a4.1.min.js"></script>
 <script type="text/javascript" src="{$adresse_js}/bookmark.js"></script>
 
 </head> 
@@ -38,7 +29,11 @@ $(document).bind("mobileinit", function(){
 
     <div data-role="header"> 
         <h1>Plugmedia@</h1> 
-        <a href="login.html" data-icon="check"  class="ui-btn-right" data-theme="a">Login</a>
+        {if $loggedin}
+       <a href="api.php?ac=logout" data-icon="delete" data-ajax="false" class="ui-btn-right" data-theme="a">{$user_info.login}</a>
+        {else}
+        <a href="login.php" data-icon="check" data-rel="dialog" class="ui-btn-right" data-theme="a">Login</a>
+        {/if}
 
     </div> 
 

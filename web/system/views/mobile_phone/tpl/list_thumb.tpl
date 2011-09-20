@@ -1,48 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-   	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   	<meta name="apple-mobile-web-app-capable" content="yes" />
-   	<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1; user-scalable=0;" />
- 	<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-   
-	<title>Plugmedi@</title>
-	<link rel="stylesheet" href="{$adresse_css}/jquery.mobile-1.0a4.1.css" />
-   <link rel="apple-touch-icon" href="{$adresse_images}/jqtouch.png" />
-   <link rel="apple-touch-startup-image" href="{$adresse_images}/jqt_startup.png" />
-	<link rel="apple-touch-icon-precomposed" href="{$adresse_images}/jqtouch.png">
-    
-    
-	<script src="{$adresse_js}/jquery-1.4.4.min.js"></script>
-<script src="{$adresse_js}/jquery-1.4.4.min.js"></script><script type="text/javascript" src="{$adresse_js}/jquery.mobile-1.0a4.1.min.js"></script>
+{include file="header.tpl"}
 <script type="text/javascript">
-$(document).bind("mobileinit", function(){
-    $.extend($.mobile, {
-        loadingMessage: "Loading...",
-		pageLoadErrorMessage: "Error"
-    });
-    $.mobile.page.prototype.options.backBtnText = "&laquo; Previous page";
+		
+		/*
+		 * IMPORTANT!!!
+		 * REMEMBER TO ADD  rel="external"  to your anchor tags. 
+		 * If you don't this will mess with how jQuery Mobile works
+		 */
+		
+		$(document).ready(function(){
+
+	var myPhotoSwipe = $("#Gallery li.file_th a").photoSwipe({ enableMouseWheel: false , enableKeyboard: false });
+
 });
-</script>	
-	<script type="text/javascript" src="{$adresse_js}/jquery.mobile-1.0a4.1.min.js"></script>
 
+$('.ui-btn-back').live('tap',function() {
+  history.back(); return false;
+}).live('click',function() {
+  return false;
+});
 
-</head> 
-<body> 
-<div data-role="page">
-
-	<div data-role="header" data-theme="a">
-		<h1>Inset list samples</h1>
-		<a href="../../" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
-	</div><!-- /header -->
+		
+	</script>
 
 	<div data-role="content">
 	
 
-		
-		<h2>Thumbnail, split button list</h2>
-        <ul data-role="listview" data-inset="true">
+	
+        <ul data-role="listview" data-inset="true" id="Gallery"> 
+        <li data-role="list-divider" data-icon="back"><a href='#' class='ui-btn-back'>{t}DIRECTORIES{/t}</a></li>
 {foreach from=$list item=media}
 	{if $media.type eq 'dir' || $media.type eq 'link'}
     
@@ -53,8 +38,27 @@ $(document).bind("mobileinit", function(){
 				<p>{$media.short_name_displayable|truncate:20:"..."}</p></a></li>
      {/if}
 {foreachelse}
-	{t}FOLDEREMPTY{/t}
+	<li>{t}FOLDEREMPTY{/t}</li>
 {/foreach}
+
+<li data-role="list-divider">FILES</li>
+{foreach from=$list item=media}
+	{if $media.type neq 'dir' && $media.type neq 'link'}
+    
+			
+				<li class='file_th'><a href="api.php?ac=rotatePic&pic={$media.file_id}&percent=1.5"  rel="external">
+				{if isset($media.small_thumbnail) && $media.small_thumbnail neq ""}
+        <img id="thumb_{$media.file_id}_" src="{$media.small_thumbnail}" title="{$media.short_name}" {$media.small_thumbnail_size} align="middle" />	
+        {else}
+        <img src="{if isset($media.generate_thumb) && $media.generate_thumb == true}{$adresse_images}/generate.gif{else}{$adresse_images}/no_thumb.gif{/if}" align="middle"  border="0"  title="{$media.short_name}"  width="400" style="width:4em;"  />
+        {/if}
+				<h3>{$media.short_name_displayable|truncate:20:"..."}</h3>
+				<p>{$media.short_name_displayable|truncate:20:"..."}</p></a></li>
+     {/if}
+{foreachelse}
+	<li>No files</li>
+{/foreach}
+
 			</ul>
 			
 
@@ -62,5 +66,4 @@ $(document).bind("mobileinit", function(){
 
 </div><!-- /page -->
 
-</body>
-</html>
+{include file="footer.tpl"}

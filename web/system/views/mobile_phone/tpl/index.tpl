@@ -1,13 +1,44 @@
 {include file="header.tpl"}
 		
-		<ul data-role="listview" data-inset="true" data-theme="a" data-dividertheme="a">
-			<li data-role="list-divider"></li>
-			<li><a href="list.php">Browse directories</a></li>
-			<li><a href="docs/about/features.html">Play Radio</a></li>
-			<li><a href="docs/about/accessibility.html">Random picture</a></li>
+		<div data-role="content" data-theme="c">
+        
+        
+        
+<ul data-role="listview" data-inset="true">        
+           
+    {foreach from=$list item=media}
 
-			<li><a href="docs/about/platforms.html">Last Items</a></li>
-		</ul>
+<li><a href="list.php?dir={$media.dir_id}&ref={$media.dir_id}">
+			{if $media.thumb neq ""}
+            <img src="{$media.thumb}" title="{$media.short_name}"style="min-height:80px;" align="middle" />	
+            {else}
+            <img src="{$adresse_images}/blank.gif" title="{$media.short_name}"   style="min-height:80px;" align="middle" />
+            {/if} 
+				<h3>{$media.short_name_displayable|truncate:20:"..."}</h3>
+				<p>{$media.smart_description}</p>
+
+			</a></li>
+            
+            
+                   
+        
+       
+       
+       
+    {foreachelse}
+             {if $loggedin}
+                <li class="ui-li ui-li-static ui-body-c ui-corner-bottom">{t}NOALBUMYET{/t}</li>
+                <!--<div id="no_albums">{t}NOALBUMYET{/t}.</div>-->
+                {else}
+                <li class="ui-li ui-li-static ui-body-c ui-corner-bottom">{t}CONNECTALBUM{/t}</li>
+				 <!--<br /><br /><br /><div id="information_message"></div>-->
+			
+                {/if}
+    {/foreach}
+</ul>     
+        
+        
+        </div>
 		
 
 		

@@ -161,6 +161,7 @@
 	function editUser ($id_edited, $name, $pass, $pass2, $email, $groups, $lang, $can_read_comment= false, $can_add_comment=false, $can_manage_metadata=false, $admin_access=false)
 	{
 		global $ERROR, $DB;
+
 		if ($pass != $pass2)
 		{
 			$ERROR->addError('PASSDIFFERENT', 'Error');
