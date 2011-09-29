@@ -23,7 +23,7 @@ function getCoolirisRss($dir,$sorting=false, $order=false)
 	
 	
 			
-	if(!$smarty->is_cached('rss_small.tpl', "rss_small_".$dir."_".$SESSION->getData('order')."_".$SESSION->getData('tris')))	// IS THERE A CACHE?
+	if(!$smarty->isCached('rss_small.tpl', "rss_small_".$dir."_".$SESSION->getData('order')."_".$SESSION->getData('tris')))	// IS THERE A CACHE?
 	{
 		$directory->setRoot($dir);
 		$smarty->assign("list",$directory->listDirectory(false,true));
