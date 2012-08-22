@@ -39,7 +39,7 @@ if (is_array($directory_access) && count($directory_access)==1)
 $SMARTY->assign("list",$directory_access);
 
 
-$PLUGIN_MGT->hook( "index_before_display", &$SMARTY);  
+$PLUGIN_MGT->hook( "index_before_display", $SMARTY);  
 
 $SMARTY->display_('index.tpl','index');	
 

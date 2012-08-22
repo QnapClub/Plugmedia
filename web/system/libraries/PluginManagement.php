@@ -34,7 +34,7 @@ class CORE_PluginManagement{
 	
 
 	// Hook the active plugins at a checkpoint. 
-	static function hook( $checkpoint, $args='' )
+	static function hook( $checkpoint, &$args='' )
 	{
 		// Cycle through all the plugins that are active
    		foreach(CORE_PluginManagement::$plugins_list as $plugin)
