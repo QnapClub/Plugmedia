@@ -58,7 +58,7 @@ set_error_handler('_exception_handler');
 
 
 // TIC TAC TIC TAC TIC TAC
-$BM =& load_class('Benchmark');
+$BM = load_class('Benchmark');
 $BM->mark('total_execution_time_start');
 
 // LOADING DEFAULT CLASS

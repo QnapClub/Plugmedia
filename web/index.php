@@ -22,7 +22,7 @@ if ($index->getInserted_directory()>0)
 $directory_access = $directory->getDirectory_access();	// obtain all directory that a member can have access
 
 
-//$PLUGIN_MGT->hook( "index_directory_access", &$directory_access);  
+//$PLUGIN_MGT->hook( "index_directory_access", $directory_access);  
 
 
 // IF WE GOT ONLY ONE DIRECTORY, REDIRECT TO THE DIR LIST
