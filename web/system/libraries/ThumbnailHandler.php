@@ -235,7 +235,7 @@ class CORE_ThumbnailHandler {
 	{
 		log_message('debug', 'Generate thumb with Pthumb for :'.$this->full_original_path);
 		
-		/*$thumbgen =& load_class('ImageManipulation');
+		/*$thumbgen = load_class('ImageManipulation');
 		
 		$config['image_library'] = 'gd2';
 		$config['source_image'] = $this->full_original_path;
@@ -260,9 +260,9 @@ class CORE_ThumbnailHandler {
 		}
 		*/
 		
-$pthumb =& load_class('Pthumb');
+$pthumb = load_class('Pthumb');
 		
-		$pthumb =& load_class('Pthumb');
+		$pthumb = load_class('Pthumb');
 		
 		$data = $pthumb -> fit_thumbnail($this->full_original_path,$width,$height,1,true);
 		if (!$data)
@@ -284,7 +284,7 @@ $pthumb =& load_class('Pthumb');
 		}
 		return true;
 		/*
-		$pthumb =& load_class('Pthumb');
+		$pthumb = load_class('Pthumb');
 		
 		$data = $pthumb -> fit_thumbnail($this->full_original_path,$width,$height,1,true);
 		if (!$data)

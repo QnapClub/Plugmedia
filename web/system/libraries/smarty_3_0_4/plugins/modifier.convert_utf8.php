@@ -6,7 +6,7 @@
  */
 function smarty_modifier_convert_utf8($string, $respect_config = true)
 {
-	/*$parsingini =& load_class('ParsingIni');
+	/*$parsingini = load_class('ParsingIni');
 	$parsingini->load('system/config/plugmedia_admin.php');
 	if ($respect_config)
 	{

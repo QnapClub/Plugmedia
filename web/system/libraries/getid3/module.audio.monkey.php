@@ -27,8 +27,8 @@ class getid3_monkey
 		$ThisFileInfo['audio']['lossless']     = true;
 
 		$ThisFileInfo['monkeys_audio']['raw'] = array();
-		$thisfile_monkeysaudio                = &$ThisFileInfo['monkeys_audio'];
-		$thisfile_monkeysaudio_raw            = &$thisfile_monkeysaudio['raw'];
+		$thisfile_monkeysaudio                = $ThisFileInfo['monkeys_audio'];
+		$thisfile_monkeysaudio_raw            = $thisfile_monkeysaudio['raw'];
 
 		fseek($fd, $ThisFileInfo['avdataoffset'], SEEK_SET);
 		$MACheaderData = fread($fd, 74);

@@ -82,7 +82,7 @@ class Smarty_Internal_Template extends Smarty_Internal_Data {
      */
     public function __construct($template_resource, $smarty, $_parent = null, $_cache_id = null, $_compile_id = null, $_caching = null, $_cache_lifetime = null)
     {
-        $this->smarty = &$smarty; 
+        $this->smarty = $smarty; 
         // Smarty parameter
         $this->cache_id = $_cache_id === null ? $this->smarty->cache_id : $_cache_id;
         $this->compile_id = $_compile_id === null ? $this->smarty->compile_id : $_compile_id;

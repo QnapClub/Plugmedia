@@ -27,7 +27,7 @@
 		}
 		// now verify lang
 
-		$configDB =& load_class('ConfigLoader');	
+		$configDB = load_class('ConfigLoader');	
 		$tab_lang = $configDB->getValue('AVAILABLE_LANG');
 		
 		if (!array_key_exists($lang,$tab_lang))
@@ -118,9 +118,9 @@
 		if ($send_email)
 		{
 			// send welcome mail
-			$email_sender =& load_class('Email'); // FIRST INSTRUCTION
+			$email_sender = load_class('Email'); // FIRST INSTRUCTION
 
-			$configDB =& load_class('ConfigLoader');
+			$configDB = load_class('ConfigLoader');
 			$pm_url = $configDB->getValue('PLUGMEDIA_URL');
 			$pm_admin_email = $configDB->getValue('PLUGMEDIA_ADMIN_EMAIL');
 			
@@ -130,7 +130,7 @@
 
 			$email_sender->to($email);
 			
-			$i18n =& load_class('I18n');
+			$i18n = load_class('I18n');
 			$backup_lang = $i18n->getCurrent_lang();
 			$i18n->setLanguage($lang);
 			
@@ -169,7 +169,7 @@
 			exit();
 		}
 		
-		$configDB =& load_class('ConfigLoader');	
+		$configDB = load_class('ConfigLoader');	
 		$tab_lang = $configDB->getValue('AVAILABLE_LANG');
 		
 		if (!array_key_exists($lang,$tab_lang))
@@ -802,7 +802,7 @@
 			return false;
 			exit();
 		}
-		$ini_users =& load_class('ParsingIni');
+		$ini_users = load_class('ParsingIni');
 		$ini_users->ConfigMagik('system/config/users.php', true, true);
 		
 		if (!$ini_users->sectionExist($login))

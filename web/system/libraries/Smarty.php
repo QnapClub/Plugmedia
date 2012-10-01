@@ -26,7 +26,7 @@ class CORE_Smarty extends Smarty {
        
 
 
-		$CFG =& load_class('Config');
+		$CFG = load_class('Config');
 		$CFG->load('smarty.php');
 		parent::__construct();
 		//template par défaut
@@ -100,7 +100,7 @@ class CORE_Smarty extends Smarty {
 	
 	function setRssFeed($cache = true)
 	{
-		$CFG =& load_class('Config');
+		$CFG = load_class('Config');
 		$CFG->load('smarty.php');
 
 		$this->setTemplateDir(BASEPATH.'views/rss/tpl');
@@ -128,9 +128,9 @@ class CORE_Smarty extends Smarty {
 		global $PHP_ERROR;
 		if ($reference_cache==NULL)
 			$reference_cache = $tpl;
-		$BM =& load_class('Benchmark');
-		$ERROR =& load_class('Error');
-		$DB =& load_class('Db_postgresql');
+		$BM = load_class('Benchmark');
+		$ERROR = load_class('Error');
+		$DB = load_class('Db_postgresql');
 		
 		// ASSIGNATION DU TEMPS DE GENERATION DE LA PAGE
 		$this->assign("generated_time",$BM->elapsed_time('loading_time_base_classes_start','total_execution_time_end')); 

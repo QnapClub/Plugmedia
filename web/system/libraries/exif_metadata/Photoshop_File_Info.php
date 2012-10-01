@@ -1335,62 +1335,62 @@ function put_photoshop_file_info( $jpeg_header_data, $new_ps_file_info_array, $O
         // Process the XMP Photoshop block
 
         // Find the Photoshop Information within the XMP block
-        $photoshop_block = & find_XMP_block( $new_XMP_array, "photoshop" );
+        $photoshop_block = find_XMP_block( $new_XMP_array, "photoshop" );
 
         // The Photoshop CaptionWriter tag contains captionwriter - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:CaptionWriter" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:CaptionWriter" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'captionwriter' ];
 
         // The Photoshop Category tag contains category - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:Category" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:Category" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'category' ];
 
         // The Photoshop DateCreated tag contains date - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:DateCreated" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:DateCreated" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'date' ];
 
         // The Photoshop City tag contains city - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:City" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:City" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'city' ];
 
         // The Photoshop State tag contains state - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:State" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:State" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'state' ];
 
         // The Photoshop Country tag contains country - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:Country" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:Country" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'country' ];
 
         // The Photoshop AuthorsPosition tag contains authorsposition - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:AuthorsPosition" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:AuthorsPosition" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'authorsposition' ];
 
         // The Photoshop Credit tag contains credit - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:Credit" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:Credit" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'credit' ];
 
         // The Photoshop Source tag contains source - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:Source" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:Source" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'source' ];
 
         // The Photoshop Headline tag contains headline - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:Headline" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:Headline" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'headline' ];
 
         // The Photoshop Instructions tag contains instructions - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:Instructions" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:Instructions" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'instructions' ];
 
         // The Photoshop TransmissionReference tag contains transmissionreference - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:TransmissionReference" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:TransmissionReference" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'transmissionreference' ];
 
         // The Photoshop Urgency tag contains urgency - Find it and Update the value
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:Urgency" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:Urgency" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'urgency' ];
 
         // The Photoshop SupplementalCategories tag contains supplementalcategories - Find it
-        $Item = & find_XMP_item( $photoshop_block, "photoshop:SupplementalCategories" );
+        $Item = find_XMP_item( $photoshop_block, "photoshop:SupplementalCategories" );
 
         // Create an array to receive the XML list items for the Supplemental Categories
         $new_supcat_array = array( );
@@ -1410,10 +1410,10 @@ function put_photoshop_file_info( $jpeg_header_data, $new_ps_file_info_array, $O
         // Process the XMP XAP block
 
         // Find the XAP Information within the XMP block
-        $XAP_block = & find_XMP_block( $new_XMP_array, "xap" );
+        $XAP_block = find_XMP_block( $new_XMP_array, "xap" );
 
         // The XAP CreateDate tag contains date XMP was first created - Find it and Update the value
-        $Item = & find_XMP_item( $XAP_block, "xap:CreateDate" );
+        $Item = find_XMP_item( $XAP_block, "xap:CreateDate" );
 
         // Check if the CreateDate is blank
         if ( $Item[ 'value' ] == "" )
@@ -1425,19 +1425,19 @@ function put_photoshop_file_info( $jpeg_header_data, $new_ps_file_info_array, $O
 
 
         // The XAP ModifyDate tag contains last resource change date  - Find it and Update the value to the current date
-        $Item = & find_XMP_item( $XAP_block, "xap:ModifyDate" );
+        $Item = find_XMP_item( $XAP_block, "xap:ModifyDate" );
         $Item[ 'value' ] = date( "Y-m-d\TH:i:s" );
         $Item[ 'value' ] .= get_Local_Timezone_Offset( );
 
         // The XAP ModifyDate tag contains last XMP change date  - Find it and Update the value to the current date
-        $Item = & find_XMP_item( $XAP_block, "xap:MetadataDate" );
+        $Item = find_XMP_item( $XAP_block, "xap:MetadataDate" );
         $Item[ 'value' ] = date( "Y-m-d\TH:i:s" );
         $Item[ 'value' ] .= get_Local_Timezone_Offset( );
 
 
 
         // The XAP CreatorTool tag contains name of the software editor  - Find it
-        $Item = & find_XMP_item( $XAP_block, "xap:CreatorTool" );
+        $Item = find_XMP_item( $XAP_block, "xap:CreatorTool" );
 
         // Photoshop replaces the CreatorTool with "Adobe Photoshop ..."
         // This toolkit instead preserves existing value and appends the toolkit name to the end of it
@@ -1469,10 +1469,10 @@ function put_photoshop_file_info( $jpeg_header_data, $new_ps_file_info_array, $O
         // Process the XMP Basic Job Information block
 
         // Find the XAP Basic Job Information within the XMP block
-        $XAPBJ_block = & find_XMP_block( $new_XMP_array, "xapBJ" );
+        $XAPBJ_block = find_XMP_block( $new_XMP_array, "xapBJ" );
 
         // The XAP Basic Job JobRef tag contains urgency - Find it and Update the value
-        $Item = & find_XMP_item( $XAPBJ_block, "xapBJ:JobRef" );
+        $Item = find_XMP_item( $XAPBJ_block, "xapBJ:JobRef" );
         $Item[ 'children' ][ 0 ][ 'children' ] =
                 array( array (  'tag'        => 'rdf:li',
                                 'attributes' => array ( 'rdf:parseType' => 'Resource' ),
@@ -1488,7 +1488,7 @@ function put_photoshop_file_info( $jpeg_header_data, $new_ps_file_info_array, $O
         // Process the XMP XAP Rights Information block
 
         // Find the XAP Rights Information within the XMP block
-        $XAPRights_block = & find_XMP_block( $new_XMP_array, "xapRights" );
+        $XAPRights_block = find_XMP_block( $new_XMP_array, "xapRights" );
 
 
 
@@ -1523,7 +1523,7 @@ function put_photoshop_file_info( $jpeg_header_data, $new_ps_file_info_array, $O
 
 
         // The XAP Rights WebStatement tag contains ownerurl - Find it and Update the value
-        $Item = & find_XMP_item( $XAPRights_block, "xapRights:WebStatement" );
+        $Item = find_XMP_item( $XAPRights_block, "xapRights:WebStatement" );
         $Item[ 'value' ] = $new_ps_file_info_array[ 'ownerurl' ];
 
 
@@ -1532,36 +1532,36 @@ function put_photoshop_file_info( $jpeg_header_data, $new_ps_file_info_array, $O
         // Process the XMP Dublin Core block
 
         // Find the Dublin Core Information within the XMP block
-        $DC_block = & find_XMP_block( $new_XMP_array, "dc" );
+        $DC_block = find_XMP_block( $new_XMP_array, "dc" );
 
 
         // The Dublin Core description tag contains caption - Find it and Update the value
-        $Item = & find_XMP_item( $DC_block, "dc:description" );
+        $Item = find_XMP_item( $DC_block, "dc:description" );
         $Item[ 'children' ][ 0 ][ 'children' ] = array( array(  'tag'   => "rdf:li",
                                                                 'value' => $new_ps_file_info_array[ 'caption' ],
                                                                 'attributes' => array( 'xml:lang' => "x-default" ) ) );
 
 
         // The Dublin Core title tag contains title - Find it and Update the value
-        $Item = & find_XMP_item( $DC_block, "dc:title" );
+        $Item = find_XMP_item( $DC_block, "dc:title" );
         $Item[ 'children' ][ 0 ][ 'children' ] = array( array(  'tag'   => "rdf:li",
                                                                 'value' => $new_ps_file_info_array[ 'title' ],
                                                                 'attributes' => array( 'xml:lang' => "x-default" ) ) );
 
 
         // The Dublin Core rights tag contains copyrightnotice - Find it and Update the value
-        $Item = & find_XMP_item( $DC_block, "dc:rights" );
+        $Item = find_XMP_item( $DC_block, "dc:rights" );
         $Item[ 'children' ][ 0 ][ 'children' ] = array( array(  'tag'   => "rdf:li",
                                                                 'value' => $new_ps_file_info_array[ 'copyrightnotice' ],
                                                                 'attributes' => array( 'xml:lang' => "x-default" ) ) );
 
         // The Dublin Core creator tag contains author - Find it and Update the value
-        $Item = & find_XMP_item( $DC_block, "dc:creator" );
+        $Item = find_XMP_item( $DC_block, "dc:creator" );
         $Item[ 'children' ][ 0 ][ 'children' ] = array( array(  'tag'   => "rdf:li",
                                                                 'value' => $new_ps_file_info_array[ 'author' ]) );
 
         // The Dublin Core subject tag contains keywords - Find it
-        $Item = & find_XMP_item( $DC_block, "dc:subject" );
+        $Item = find_XMP_item( $DC_block, "dc:subject" );
 
         // Create an array to receive the Keywords List Items
         $new_keywords_array = array( );

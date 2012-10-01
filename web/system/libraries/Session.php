@@ -30,7 +30,7 @@ class CORE_Session {
 	function login($user, $pass, $path)
 	{
 		global $DB;
-		$event_qnap =& load_class('QNAP_logs');
+		$event_qnap = load_class('QNAP_logs');
 		//remove extra caracters
 		$pass = stripslashes($pass);
 		if ($this->verifyUserPassword($user, $pass))
@@ -191,7 +191,7 @@ class CORE_Session {
 			{
 				// COOKIES NON DEFINI
 				
-				$configDB =& load_class('ConfigLoader');	
+				$configDB = load_class('ConfigLoader');	
 				return $configDB->getValue('DEFAULT_LANG');
 			}
 		}

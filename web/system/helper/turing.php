@@ -11,7 +11,7 @@
 
 function getCode_turing()
 {
-	$session =& load_class('Session');
+	$session = load_class('Session');
 	if (!$code = $session->getData('turing_code'))
 	{
 		$code=mt_rand(100000,999999);		// Code en chiffre
@@ -24,7 +24,7 @@ function getCode_turing()
 
 function check_turing($code)
 {
-	$session =& load_class('Session');
+	$session = load_class('Session');
 	
 	$code_entre=strtoupper($code);
 	
@@ -50,7 +50,7 @@ function check_turing($code)
 
 function getPicture()
 {
-	$session =& load_class('Session');
+	$session = load_class('Session');
 
 	$code = getCode_turing();	// always start new generation...
 	$largeur=107;

@@ -2,7 +2,7 @@
 
 
 require_once 'system/core/frontcontroller.php';
-/*$MD =& load_class('Metadata');
+/*$MD = load_class('Metadata');
 $out = $MD->saveExifData('/share/Qmultimedia/pictures/colloseum_geotag.jpg');
 
 
@@ -153,7 +153,7 @@ var_dump  (unserialize(base64_decode($val)));
 */
 
 /*
-$queue =& load_class('Queue');
+$queue = load_class('Queue');
 //$queue->performQueue('video');
 $random = rand(1,20);
 if ($queue->putItem('movie_convert', serialize(array('id_movie'=>'442601','flv_convert'=>true, 'mobile_convert'=>false,'extract_thumb'=>true )), '180116'))
@@ -176,7 +176,7 @@ $queue->performQueue('movie_convert',10);
 */
 //loadHelper ('administration');
 //dropRepository();
-$queue =& load_class('Queue');
+$queue = load_class('Queue');
 
 $random = rand(1,20);
 if ($queue->putItem('movie_convert', serialize(array('id_movie'=>'442592','flv_convert'=>true, 'mobile_convert'=>false,'extract_thumb'=>true )), '180116'))

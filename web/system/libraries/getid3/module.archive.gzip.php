@@ -67,7 +67,7 @@ class getid3_gzip {
 			if (strlen($arr_members[$i]) == 0) {
 				continue;
 			}
-			$thisThisFileInfo = &$ThisFileInfo['gzip']['member_header'][++$idx];
+			$thisThisFileInfo = $ThisFileInfo['gzip']['member_header'][++$idx];
 
 			$buff = "\x1F\x8B\x08".$arr_members[$i];
 

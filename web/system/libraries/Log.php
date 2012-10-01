@@ -27,7 +27,7 @@ class CORE_Log {
 	 */
 	function CORE_Log()
 	{
-		$config =& get_config();
+		$config = get_config();
 		
 		$this->log_path = ($config['log_path'] != '') ? $config['log_path'] : BASEPATH.'logs/';
 		

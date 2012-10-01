@@ -16,7 +16,7 @@ class CORE_Config {
 
 	function CORE_Config()
 	{
-		$this->config =& get_config();
+		$this->config = get_config();
 		//log_message('debug', "Config Class Initialized");
 	}  	
 	function load($file = '', $use_sections = FALSE, $fail_gracefully = FALSE)

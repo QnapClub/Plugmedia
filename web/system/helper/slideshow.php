@@ -12,9 +12,9 @@
 function getSlideshowRss($dir,$sorting=false, $order=false)
 {
 	global $SESSION;
-	$directory =& load_class('Directory2');
+	$directory = load_class('Directory2');
 	
-	$smarty =& load_class('Smarty');
+	$smarty = load_class('Smarty');
 	$smarty->setRssFeed();
 	
 			
@@ -35,7 +35,7 @@ function getSlideshowRss($dir,$sorting=false, $order=false)
 
 function getSlideshow_param($dir)
 {
-	$smarty =& load_class('Smarty');
+	$smarty = load_class('Smarty');
 	$smarty->setRssFeed(false);
 	$smarty->assign("dir_slideshow",$dir);
 	$smarty->display('rss_slideshow_params.tpl', "rss_slideshow_params");	

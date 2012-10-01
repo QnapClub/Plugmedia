@@ -12,7 +12,7 @@
 
 function resizePicture($array_picture)
 {
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	
 	
 	if ($array_picture['extension'] == 'picture' || in_array($array_picture['readable_type'],$configDB->getValue('EXTENSION_RAW')))

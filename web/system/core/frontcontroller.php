@@ -64,7 +64,7 @@ $BM->mark('total_execution_time_start');
 // LOADING DEFAULT CLASS
 
 $BM->mark('loading_time_base_classes_start');
-$DB =& load_class('Db_postgresql');
+$DB = load_class('Db_postgresql');
 if (!$DB->connexionbd())
 {
 	show_error($DB->getError());
@@ -72,7 +72,7 @@ if (!$DB->connexionbd())
 }
 
 
-$CONFIGDB =& load_class('ConfigLoader');
+$CONFIGDB = load_class('ConfigLoader');
 $db_config = $CONFIGDB->getDbConfig();
 
 define('SMALLTHUMB_HEIGHT',$CONFIGDB->getValue('SMALLTHUMB_HEIGHT'));
@@ -81,22 +81,22 @@ define('NORMALTHUMB_HEIGHT',$CONFIGDB->getValue('PICTURE_MAX_HEIGHT'));
 define('NORMALTHUMB_WIDTH',$CONFIGDB->getValue('PICTURE_MAX_WIDTH'));
 
 
-$CFG =& load_class('Config');
-$SMARTY =& load_class('Smarty');
-$ERROR =& load_class('Error');
+$CFG = load_class('Config');
+$SMARTY = load_class('Smarty');
+$ERROR = load_class('Error');
 
 /**** PLUGIN MANAGEMENT **/
 
-$PLUGIN_MGT =& load_class('PluginManagement');
-$PLUGIN =& load_class('Plugin');
+$PLUGIN_MGT = load_class('PluginManagement');
+$PLUGIN = load_class('Plugin');
 $PLUGIN_MGT->initialize();  
 $PLUGIN_MGT->hook( "PluginLoad");
   
 /*************************/
 
 
-$SESSION =& load_class('Session');
-$SORTING_ORDER =& load_class('SortingOrdering');	// SORTING ORDERING
+$SESSION = load_class('Session');
+$SORTING_ORDER = load_class('SortingOrdering');	// SORTING ORDERING
 $SESSION->setData('order',$SORTING_ORDER->getOrdering());
 $SESSION->setData('tris',$SORTING_ORDER->getSorting());
 
@@ -127,7 +127,7 @@ $BM->mark('loading_time_base_classes_end');
 // END LOADING DEFAULT CLASS
 
 // ------- LANGUAGE DETECTION --------------------------------------------------------
-$i18n =& load_class('I18n');
+$i18n = load_class('I18n');
 
 $tab_lang = $CONFIGDB->getValue('AVAILABLE_LANG');
 if (isset($_GET['lang']))
@@ -195,7 +195,7 @@ if (isset($_GET['dir']) && isset($_GET['ref']))
 $SMARTY->assign("cooliris",'<link rel="alternate" href="api.php?ac=cooliris&dir='.$_GET['dir'].'&ref='.$_GET['ref'].'" type="application/rss+xml" title="" id="gallery" />');
 
 
-$AGENT =& load_class('User_agent');
+$AGENT = load_class('User_agent');
 if ($AGENT->is_mobile())
 {	
 	// this is a mobile device, SET correct theme...

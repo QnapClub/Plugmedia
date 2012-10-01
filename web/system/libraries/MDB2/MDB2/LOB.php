@@ -105,7 +105,7 @@ class MDB2_LOB
         if (!isset($GLOBALS['_MDB2_databases'][$this->db_index])) {
             return false;
         }
-        $db =& $GLOBALS['_MDB2_databases'][$this->db_index];
+        $db = $GLOBALS['_MDB2_databases'][$this->db_index];
         $this->lob_index = (int)$url['user'];
         if (!isset($db->datatype->lobs[$this->lob_index])) {
             return false;
@@ -127,7 +127,7 @@ class MDB2_LOB
     function stream_read($count)
     {
         if (isset($GLOBALS['_MDB2_databases'][$this->db_index])) {
-            $db =& $GLOBALS['_MDB2_databases'][$this->db_index];
+            $db = $GLOBALS['_MDB2_databases'][$this->db_index];
             $db->datatype->_retrieveLOB($db->datatype->lobs[$this->lob_index]);
 
             $data = $db->datatype->_readLOB($db->datatype->lobs[$this->lob_index], $count);
@@ -168,7 +168,7 @@ class MDB2_LOB
     function stream_tell()
     {
         if (isset($GLOBALS['_MDB2_databases'][$this->db_index])) {
-            $db =& $GLOBALS['_MDB2_databases'][$this->db_index];
+            $db = $GLOBALS['_MDB2_databases'][$this->db_index];
             return $db->datatype->lobs[$this->lob_index]['position'];
         }
     }
@@ -188,7 +188,7 @@ class MDB2_LOB
             return true;
         }
 
-        $db =& $GLOBALS['_MDB2_databases'][$this->db_index];
+        $db = $GLOBALS['_MDB2_databases'][$this->db_index];
         $result = $db->datatype->_endOfLOB($db->datatype->lobs[$this->lob_index]);
         if (version_compare(phpversion(), "5.0", ">=")
             && version_compare(phpversion(), "5.1", "<")
@@ -226,7 +226,7 @@ class MDB2_LOB
     function stream_stat()
     {
         if (isset($GLOBALS['_MDB2_databases'][$this->db_index])) {
-            $db =& $GLOBALS['_MDB2_databases'][$this->db_index];
+            $db = $GLOBALS['_MDB2_databases'][$this->db_index];
             return array(
               'db_index' => $this->db_index,
               'lob_index' => $this->lob_index,
@@ -245,7 +245,7 @@ class MDB2_LOB
     function stream_close()
     {
         if (isset($GLOBALS['_MDB2_databases'][$this->db_index])) {
-            $db =& $GLOBALS['_MDB2_databases'][$this->db_index];
+            $db = $GLOBALS['_MDB2_databases'][$this->db_index];
             if (isset($db->datatype->lobs[$this->lob_index])) {
                 $db->datatype->_destroyLOB($db->datatype->lobs[$this->lob_index]);
                 unset($db->datatype->lobs[$this->lob_index]);

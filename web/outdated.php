@@ -24,7 +24,7 @@ flush();
 
 global $i18n;
 
-$index =& load_class('Indexing'); 
+$index = load_class('Indexing'); 
 $index->updateOutdatedDirectory($_GET['id']);
 
 echo "<div id='waiting_message'><div id='content_a'>".$i18n->translate('OUTDATED_REDIRECTING', '')." ...</div></div>";

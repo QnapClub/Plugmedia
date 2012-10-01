@@ -81,7 +81,7 @@ function escape_string($str)
 
 function get_footprint($src_file)
 {
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 
 	if ((bool) $configDB->getValue('ENABLE_FOOTPRINT'))
 		return @sha1_file($src_file);

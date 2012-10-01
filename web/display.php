@@ -17,7 +17,7 @@ loadHelper ('administration');
 loadHelper ('comments');
 loadHelper ('metadata_management');
 
-$directory =& load_class('Directory2');		// LOAD DIRECTORY
+$directory = load_class('Directory2');		// LOAD DIRECTORY
 
 
 

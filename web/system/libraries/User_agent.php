@@ -51,7 +51,7 @@ class CORE_User_agent {
 	
 	function _load_agent_file()
 	{
-		$CFG =& load_class('Config');
+		$CFG = load_class('Config');
 		$CFG->load('user_agents.php');
 		
 		$return = FALSE;

@@ -26,7 +26,7 @@ class CORE_Db_postgresql
 	// CONSTRUCTEUR
 	function CORE_Db_postgresql()
 	{
-		$config_cl =& load_class('Config');
+		$config_cl = load_class('Config');
 		$config_cl->load('database.php');
 		$this->config= $config_cl->item('database');
 
@@ -58,7 +58,7 @@ class CORE_Db_postgresql
 				'result_buffering' => false,
 		);
 		
-		$this->connexion =& MDB2::connect($dsn, $options);
+		$this->connexion = MDB2::connect($dsn, $options);
 		
 		if (PEAR::isError($this->connexion)) {
 			$error_msg = "[DATABASE] Plugmedia Database was not correctly installed or is missing, please check the qpkg or contact Plugmedia Website support ".$db->getMessage(); 

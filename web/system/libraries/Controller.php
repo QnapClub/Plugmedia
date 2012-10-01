@@ -26,10 +26,10 @@ class CORE_Controller {
 	{
 		// Assign all the class objects that were instantiated by the
 		// front controller to local class variables
-		/*$this->bd =& load_class(Db);
-		$this->config =& load_class(Config);
-		$this->benchmark =& load_class(Benchmark);
-		$this->smarty =& load_class(Smarty);
+		/*$this->bd = load_class(Db);
+		$this->config = load_class(Config);
+		$this->benchmark = load_class(Benchmark);
+		$this->smarty = load_class(Smarty);
 		$this->controller_loaded = 1;*/
 	}
 	

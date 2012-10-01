@@ -32,8 +32,8 @@ class CORE_Indexing {
 	{
 		global $DB, $db_config;	
 		$this->DB = $DB;
-		$this->metadata =& load_class('Metadata');
-		$this->config =& load_class('ConfigLoader');
+		$this->metadata = load_class('Metadata');
+		$this->config = load_class('ConfigLoader');
 		
 		$this->config_array = $db_config;
 		$this->setRoot();
@@ -226,7 +226,7 @@ class CORE_Indexing {
 		
 		if (isset($parents_id))
 		{
-			$monitoring =& load_class('Directory_monitoring');
+			$monitoring = load_class('Directory_monitoring');
 			// add all directory with changes in the table queue_news
 			$monitoring->addChangedDirectories($parents_id, $local_insert_directory, $local_insert_file, $local_update_file);
 		}
@@ -285,7 +285,7 @@ class CORE_Indexing {
 			
 			if ($this->extract_metadata)
 			{
-				$meta =& load_class('Metadata');
+				$meta = load_class('Metadata');
 				$meta->extractMetadata($id_inserted, $filename, $base, $footprint, $extension);
 			}
 		}

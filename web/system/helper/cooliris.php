@@ -13,12 +13,12 @@ function getCoolirisRss($dir,$sorting=false, $order=false)
 {
 	global $SESSION;
 
-	$directory =& load_class('Directory2');
+	$directory = load_class('Directory2');
 	
 	
 	
 	
-	$smarty =& load_class('Smarty');
+	$smarty = load_class('Smarty');
 	$smarty->setRssFeed();
 	
 	

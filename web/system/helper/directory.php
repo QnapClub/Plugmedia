@@ -21,7 +21,7 @@
 		else
 		{
 	 	
-			$directory =& load_class('Directory2');
+			$directory = load_class('Directory2');
 			
 			$return = $directory->ListDirectoryWithoutAccess($folder, true, false, 0, 0);
 			
@@ -56,10 +56,10 @@
 		// USED FOR THE API 
 		
 		global $SESSION,$PLUGIN_MGT;
-		$configDB =& load_class('ConfigLoader');
+		$configDB = load_class('ConfigLoader');
 				
 		loadHelper ('utility');
-		$directory =& load_class('Directory2');
+		$directory = load_class('Directory2');
 
 		
 		
@@ -127,7 +127,7 @@
 	function getInfoFromFile($file, $config)
 	{
 		global $DB;
-		$metadata =& load_class('Metadata');
+		$metadata = load_class('Metadata');
 		$extension = getExtension($file);	
 	
 		if (in_array(strtolower($extension), $config->item('extension_img')))

@@ -20,7 +20,7 @@
 // transform exif coordinates to latitude and longitude
 // IN: coordinate from EXIF
 // OUT: Array(Latitude, Longitude)
-// $MD =& load_class('Metadata');
+// $MD = load_class('Metadata');
 // $out = $MD->saveExifData(filename);
 // $latitude = exifToCoordinate	($out['gpslatituderef'], split(",",$out['gpslatitude']));
 // $longitude = exifToCoordinate($out['gpslongituderef'], split(",",$out['gpslongitude']));

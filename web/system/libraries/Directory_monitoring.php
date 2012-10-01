@@ -74,9 +74,9 @@ class CORE_Directory_monitoring {
 			if ($usr_info['email'] != '')
 			{
 			
-				$email_sender =& load_class('Email'); // FIRST INSTRUCTION
+				$email_sender = load_class('Email'); // FIRST INSTRUCTION
 	
-				$configDB =& load_class('ConfigLoader');
+				$configDB = load_class('ConfigLoader');
 				$pm_url = $configDB->getValue('PLUGMEDIA_URL');
 				$pm_admin_email = $configDB->getValue('PLUGMEDIA_ADMIN_EMAIL');
 	
@@ -84,7 +84,7 @@ class CORE_Directory_monitoring {
 	
 				$email_sender->to($usr_info['email']);
 				
-				$i18n =& load_class('I18n');
+				$i18n = load_class('I18n');
 				$backup_lang = $i18n->getCurrent_lang();
 				$i18n->setLanguage($usr_info['lang']);
 				

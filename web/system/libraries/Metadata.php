@@ -119,7 +119,7 @@ class CORE_Metadata {
 		if ((bool) $this->config['ID3_EXTRACT'])
 		{
 			
-			$mp3 =& load_class('ID3');
+			$mp3 = load_class('ID3');
 			$mp3->addFilname($this->path.$this->filename);
 			if ($info = $mp3->getInfo())
 				$extracted_info = true;

@@ -32,7 +32,7 @@ class CORE_StreamRadio {
 		$this->shoutcast_framesize = 8192;
 		$this->radio_id = 0;
 		
-		$configDB =& load_class('ConfigLoader');
+		$configDB = load_class('ConfigLoader');
 		
 		$this->config = $configDB ;
 		return true;

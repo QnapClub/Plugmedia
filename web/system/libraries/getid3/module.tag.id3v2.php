@@ -43,9 +43,9 @@ class getid3_id3v2
 
 		// shortcuts
 		$ThisFileInfo['id3v2']['header'] = true;
-		$thisfile_id3v2                  = &$ThisFileInfo['id3v2'];
+		$thisfile_id3v2                  = $ThisFileInfo['id3v2'];
 		$thisfile_id3v2['flags']         =  array();
-		$thisfile_id3v2_flags            = &$thisfile_id3v2['flags'];
+		$thisfile_id3v2_flags            = $thisfile_id3v2['flags'];
 
 
 		fseek($fd, $StartingOffset, SEEK_SET);
@@ -56,7 +56,7 @@ class getid3_id3v2
 			$thisfile_id3v2['minorversion'] = ord($header{4});
 
 			// shortcut
-			$id3v2_majorversion = &$thisfile_id3v2['majorversion'];
+			$id3v2_majorversion = $thisfile_id3v2['majorversion'];
 
 		} else {
 

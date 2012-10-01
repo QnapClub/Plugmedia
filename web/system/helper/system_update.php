@@ -15,10 +15,10 @@ function generalIndexing()
 	// ********* STARTING INDEXATION *******************
 	
 	
-	$qnap_event =& load_class('QNAP_logs');
-	$benchmark =& load_class('Benchmark');
-	$index =& load_class('Indexing'); 
-	$monitoring =& load_class('Directory_monitoring');
+	$qnap_event = load_class('QNAP_logs');
+	$benchmark = load_class('Benchmark');
+	$index = load_class('Indexing'); 
+	$monitoring = load_class('Directory_monitoring');
 	
 	loadHelper ('directory');	
 	loadHelper ('utility');	
@@ -52,8 +52,8 @@ function extractMetadata()
 	// ********* METADATA EXTRACTION *******************
 	global $DB;
 	
-	$qnap_event =& load_class('QNAP_logs');
-	$metadata =& load_class('Metadata');
+	$qnap_event = load_class('QNAP_logs');
+	$metadata = load_class('Metadata');
 
 
 	loadHelper ('utility');
@@ -100,7 +100,7 @@ function thumbnailGeneration()
 	global $DB;
 	global $db_config;
 
-	$qnap_event =& load_class('QNAP_logs');
+	$qnap_event = load_class('QNAP_logs');
 	loadHelper ('thumbnail');	
 
 	log_message('debug', "Memory usage start: ".memory_get_usage(true));
@@ -163,7 +163,7 @@ function thumbnailDirectory()
 
 	global $DB;
 
-	$qnap_event =& load_class('QNAP_logs');
+	$qnap_event = load_class('QNAP_logs');
 	
 		
 	$qnap_event->writeEventLog(0,'Plugmedia', '127.0.0.1', 'localhost' , 'Start Thumbnail directory');

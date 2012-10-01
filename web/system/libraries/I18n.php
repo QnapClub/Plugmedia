@@ -17,7 +17,7 @@ class CORE_I18n {
 	
 	function CORE_I18n()
 	{
-		$configDB =& load_class('ConfigLoader');
+		$configDB = load_class('ConfigLoader');
 
 		$this->default_lang = $configDB->getValue('DEFAULT_LANG');
 		$this->current_lang = 'en';

@@ -16,7 +16,7 @@ exec('/usr/local/apache/bin/php -c /etc/config/php.ini  '.ROOTPATH.'/performQueu
 
 loadHelper ('utility');
 loadHelper ('follower');
-$directory =& load_class('Directory2');		// LOAD DIRECTORY
+$directory = load_class('Directory2');		// LOAD DIRECTORY
 require_once('system/libraries/smarty_2_6_19/SmartyPaginate.class.php');	// PAGINATION
 
 

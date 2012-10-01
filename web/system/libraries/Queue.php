@@ -236,7 +236,7 @@ class CORE_Queue {
 		*/
 			
 		
-		$movie =& load_class('Movie');
+		$movie = load_class('Movie');
 		$movie->setMovieId($id_movie);
 		$movie->getAllInformationFromId();
 		

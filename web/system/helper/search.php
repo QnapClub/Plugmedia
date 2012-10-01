@@ -16,7 +16,7 @@ function searchItems($string, $filename=false, $tags=false, $title=false, $descr
 
 
 	global $DB;
-	$session_member =& load_class('Session');
+	$session_member = load_class('Session');
 	$access_path = $session_member->getAccess_path();		
 	
 	$access_string = "";

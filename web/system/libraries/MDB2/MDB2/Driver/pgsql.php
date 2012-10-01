@@ -652,7 +652,7 @@ class MDB2_Driver_pgsql extends MDB2_Driver_Common
             if ($is_manip) {
                 $result =  $this->_affectedRows($connection, $result);
             } else {
-                $result =& $this->_wrapResult($result, $types, true, false, $limit, $offset);
+                $result = $this->_wrapResult($result, $types, true, false, $limit, $offset);
             }
         }
 

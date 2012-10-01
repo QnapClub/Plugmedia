@@ -574,7 +574,7 @@ class MDB2
                          $dummy2 = null,
                          $dummy3 = false)
     {
-        $err =& PEAR::raiseError(null, $code, $mode, $options, $userinfo, 'MDB2_Error', true);
+        $err = PEAR::raiseError(null, $code, $mode, $options, $userinfo, 'MDB2_Error', true);
         return $err;
     }
 
@@ -1313,7 +1313,7 @@ class MDB2_Driver_Common extends PEAR
     {
         end($GLOBALS['_MDB2_databases']);
         $db_index = key($GLOBALS['_MDB2_databases']) + 1;
-        $GLOBALS['_MDB2_databases'][$db_index] = &$this;
+        $GLOBALS['_MDB2_databases'][$db_index] = $this;
         $this->db_index = $db_index;
     }
 
@@ -3790,7 +3790,7 @@ class MDB2_Result_Common extends MDB2_Result
             }
             $column = $column_names[$column];
         }
-        $this->values[$column] =& $value;
+        $this->values[$column] = $value;
         if (null !== $type) {
             $this->types[$column] = $type;
         }
@@ -3861,7 +3861,7 @@ class MDB2_Row
     function __construct(&$row)
     {
         foreach ($row as $key => $value) {
-            $this->$key = &$row[$key];
+            $this->$key = $row[$key];
         }
     }
 
@@ -4005,7 +4005,7 @@ class MDB2_Statement_Common
             return $this->db->raiseError(MDB2_ERROR_NOT_FOUND, null, null,
                 'Unable to bind to missing placeholder: '.$parameter, __FUNCTION__);
         }
-        $this->values[$parameter] =& $value;
+        $this->values[$parameter] = $value;
         if (null !== $type) {
             $this->types[$parameter] = $type;
         }

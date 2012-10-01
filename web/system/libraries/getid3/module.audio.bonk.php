@@ -20,7 +20,7 @@ class getid3_bonk
 
 		// shortcut
 		$ThisFileInfo['bonk'] = array();
-		$thisfile_bonk        = &$ThisFileInfo['bonk'];
+		$thisfile_bonk        = $ThisFileInfo['bonk'];
 
 		$thisfile_bonk['dataoffset']      = $ThisFileInfo['avdataoffset'];
 		$thisfile_bonk['dataend']         = $ThisFileInfo['avdataend'];
@@ -117,7 +117,7 @@ class getid3_bonk
 		switch ($BonkTagName) {
 			case 'BONK':
 				// shortcut
-				$thisfile_bonk_BONK = &$ThisFileInfo['bonk']['BONK'];
+				$thisfile_bonk_BONK = $ThisFileInfo['bonk']['BONK'];
 
 				$BonkData = "\x00".'BONK'.fread($fd, 17);
 				$thisfile_bonk_BONK['version']            =        getid3_lib::LittleEndian2Int(substr($BonkData,  5, 1));
@@ -151,7 +151,7 @@ class getid3_bonk
 
 			case 'INFO':
 				// shortcut
-				$thisfile_bonk_INFO = &$ThisFileInfo['bonk']['INFO'];
+				$thisfile_bonk_INFO = $ThisFileInfo['bonk']['INFO'];
 
 				$thisfile_bonk_INFO['version'] = getid3_lib::LittleEndian2Int(fread($fd, 1));
 				$thisfile_bonk_INFO['entries_count'] = 0;

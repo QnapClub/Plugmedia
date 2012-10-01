@@ -25,7 +25,7 @@ class CORE_Db
 	// CONSTRUCTEUR
 	function CORE_Db()
 	{
-		$config_cl =& load_class('Config');
+		$config_cl = load_class('Config');
 		$config_cl->load('config.php');
 		$this->config['database'] = $config_cl->item('sqli_database_name');
 		
@@ -39,7 +39,7 @@ class CORE_Db
 
 	function connexionbd() 
 	{
-		//$ERROR =& load_class('Error');
+		//$ERROR = load_class('Error');
 		try{
 			$this->dbHandle = new PDO('sqlite:'.$this->config['database']);
 		}catch( PDOException $exception ){

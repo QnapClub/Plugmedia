@@ -293,17 +293,17 @@ function Interpret_XMP_to_HTML( $XMP_array )
                 if ( ( $XMP_array[0]['tag'] ==  "x:xapmeta" ) && ( $XMP_array[0]['children'][0]['tag'] ==  "rdf:RDF" ) )
                 {
                         // RDF found at second level - Save it's position
-                        $RDF_Contents = &$XMP_array[0]['children'][0]['children'];
+                        $RDF_Contents = $XMP_array[0]['children'][0]['children'];
                 }
                 else if ( ( $XMP_array[0]['tag'] ==  "x:xmpmeta" ) && ( $XMP_array[0]['children'][0]['tag'] ==  "rdf:RDF" ) )
                 {
                         // RDF found at second level - Save it's position
-                        $RDF_Contents = &$XMP_array[0]['children'][0]['children'];
+                        $RDF_Contents = $XMP_array[0]['children'][0]['children'];
                 }
                 else if ( $XMP_array[0]['tag'] ==  "rdf:RDF" )
                 {
                         // RDF found at first level - Save it's position
-                        $RDF_Contents = &$XMP_array[0]['children'];
+                        $RDF_Contents = $XMP_array[0]['children'];
                 }
                 else
                 {

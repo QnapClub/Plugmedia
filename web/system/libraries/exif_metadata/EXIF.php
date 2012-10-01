@@ -1480,7 +1480,7 @@ function read_IFD_universal( $filehnd, $Tiff_offset, $Byte_Align, $Tag_Definitio
                         $OutputArray[ $Tag_No ]['ByteAlign'] = $Byte_Align;
 
                         // Save a pointer to this entry for Maker note processing later
-                        $GLOBALS[ "Maker_Note_Tag" ] = & $OutputArray[ $Tag_No ];
+                        $GLOBALS[ "Maker_Note_Tag" ] = $OutputArray[ $Tag_No ];
                 }
 
 

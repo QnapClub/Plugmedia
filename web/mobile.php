@@ -46,7 +46,7 @@ switch ($_GET['page'])
 		
 		if (isset ($_GET['dir'])) 	$dir =  $_GET['dir']; else 	$dir='4461';
 		loadHelper ('utility');
-		$directory =& load_class('Directory2');		// LOAD DIRECTORY
+		$directory = load_class('Directory2');		// LOAD DIRECTORY
 		require_once('system/libraries/smarty_2_6_19/SmartyPaginate.class.php');	// PAGINATION
 		
 		$directory->setRoot($dir);
@@ -77,7 +77,7 @@ switch ($_GET['page'])
 	case'display':
 		$SESSION->login('admin', 'rFd82U9Z', '');
 		
-		$directory =& load_class('Directory2');		// LOAD DIRECTORY
+		$directory = load_class('Directory2');		// LOAD DIRECTORY
 		if (isset ($_GET['dir'])) 	$dir =  $_GET['dir']; else 	$dir='4082';	// DEFAULT DIR
 		
 		$directory->setRoot($dir);

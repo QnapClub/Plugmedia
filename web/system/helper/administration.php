@@ -11,7 +11,7 @@
 
 function canDownload()
 {
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	return (bool) $configDB->getValue('AUTORIZE_DOWNLOAD');
 }
 
@@ -22,7 +22,7 @@ function updateConfigurationAutorization($autorization)
 	else
 		$val = 0;
 	
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	$configDB->setValue('AUTORIZE_DOWNLOAD', $val);
 	
 }
@@ -33,7 +33,7 @@ function updateConfigurationPlugmedia($automatic_check, $pm_url, $pm_admin_mail)
 	else
 		$val = 0;
 
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	$configDB->setValue('AUTO_CHECK_UPDATE', $val);
 	$configDB->setValue('PLUGMEDIA_URL', $pm_url);
 	$configDB->setValue('PLUGMEDIA_ADMIN_EMAIL', $pm_admin_mail);
@@ -41,7 +41,7 @@ function updateConfigurationPlugmedia($automatic_check, $pm_url, $pm_admin_mail)
 
 function updateConfigurationThumbnail($small_height, $small_width, $normal_height, $normal_width)
 {
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	$configDB->setValue('SMALLTHUMB_HEIGHT', $small_height);
 	$configDB->setValue('SMALLTHUMB_WIDTH', $small_width);
 	$configDB->setValue('PICTURE_MAX_HEIGHT', $normal_height);
@@ -57,7 +57,7 @@ function updateConfigurationVisualization($item_per_page, $get_first_pic, $exif_
 	if ($exif_autorotate != 1)
 		$exif_autorotate = 0;
 
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	$configDB->setValue('ITEM_PER_PAGE', $item_per_page);
 	$configDB->setValue('GET_FIRST_PICTURE', $get_first_pic);
 	$configDB->setValue('EXIF_AUTOROTATE', $exif_autorotate);
@@ -69,7 +69,7 @@ function updateConfigurationProcessing($revoke_outdated, $id3_extract, $id3_cove
 	if ($revoke_outdated != 1)
 		$revoke_outdated = 0;
 
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	$configDB->setValue('REVOKE_OUTDATED', $revoke_outdated);
 	$configDB->setValue('ID3_EXTRACT', $id3_extract);
 	$configDB->setValue('EXTRACT_COVER_FROM_ID3', $id3_cover);
@@ -105,7 +105,7 @@ function deleteConfigurationFilename($filename)
 		exit();
 	}
 	
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	$hidding_masks = $configDB->getValue('HIDDING_MASK');
 	
 	
@@ -123,7 +123,7 @@ function addConfigurationFilename($filename)
 	$filename = str_replace('\"', "", $filename);
 	$filename = str_replace("\'", "", $filename);
 
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	$hidding_masks = $configDB->getValue('HIDDING_MASK');
 	
 	if (in_array($filename,$hidding_masks) || $filename=='')
@@ -161,7 +161,7 @@ function deleteConfigurationExtension($extension)
 	loadHelper ('utility');
 	$extension = hex2bin($extension);
 
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	$hidding_extension = $configDB->getValue('HIDDING_EXTENSION');
 
 	
@@ -182,7 +182,7 @@ function addConfigurationExtension($extension)
 	$extension = str_replace("\'", "", $extension);
 	$extension = str_replace(".", "", $extension);
 
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	$hidding_extension = $configDB->getValue('HIDDING_EXTENSION');
 	
 
@@ -440,7 +440,7 @@ function versionCheck($manual_check=false)
 
 function canAutomaticallyUpdate()
 {
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 	if ((bool) $configDB->getValue('AUTO_CHECK_UPDATE'))
 		return true;
 	else

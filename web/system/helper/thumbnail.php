@@ -54,7 +54,7 @@ function generateThumbWithFilepath($filename, $parent, $name, $orientation, $ext
 	global $DB;
 	global $db_config;
 	
-	$configDB =& load_class('ConfigLoader');
+	$configDB = load_class('ConfigLoader');
 
 	if (in_array(strtolower($extension),$db_config['EXTENSION_MOV_DISPLAYABLE']))	
 	{
@@ -69,7 +69,7 @@ function generateThumbWithFilepath($filename, $parent, $name, $orientation, $ext
 	}
 	else
 	{
-		$thumb =& load_class('ThumbnailHandler');	
+		$thumb = load_class('ThumbnailHandler');	
 		$thumb->setThumbInfo(iconv("UTF-8","UTF-8//IGNORE",$filename), iconv("UTF-8","UTF-8//IGNORE",$parent).iconv("UTF-8","UTF-8//IGNORE",$name) ,$orientation, $extension, $custom_thumb_path);
 		$thumb->setSilentMode($silentmode);	
 		$return = $thumb->generateThumb($thumb_type);
@@ -91,7 +91,7 @@ function generateThumbWithFilepath($filename, $parent, $name, $orientation, $ext
 
 function extractThumb($recup)
 {
-	$movie =& load_class('Movie');
+	$movie = load_class('Movie');
 	$movie->setMovieId($recup['fileid']);
 	$movie->setAllInformation($recup);
 	
@@ -103,7 +103,7 @@ function extractThumb($recup)
 function extractThumbWithoutInfo($id_movie)
 {
 	
-	$movie =& load_class('Movie');
+	$movie = load_class('Movie');
 	$movie->setMovieId($id_movie);
 	$movie->getAllInformationFromId();
 	

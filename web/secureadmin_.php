@@ -233,7 +233,7 @@ if ($is_loggedin && $user_info['admin'])
 			
 		case 'config':
 
-			$configDB =& load_class('ConfigLoader');
+			$configDB = load_class('ConfigLoader');
 	
 
 			

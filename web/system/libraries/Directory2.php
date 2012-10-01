@@ -352,7 +352,7 @@ class CORE_Directory2 {
 	public function getSpecificNodeInformation()
 	{
 
-		$configDB =& load_class('ConfigLoader');
+		$configDB = load_class('ConfigLoader');
 		// add exif informations if needed
 		
 		if (in_array(strtolower($this->specific_node_information['readable_type']), $configDB->getValue('EXTENSION_IMG')) || in_array(strtolower($this->specific_node_information['readable_type']), $configDB->getValue('EXTENSION_RAW')))
@@ -399,7 +399,7 @@ class CORE_Directory2 {
 		// IF SONG, GET IDTAG
 		if ($this->specific_node_information['extension'] == 'song')
 		{
-			$mp3 =& load_class('ID3');
+			$mp3 = load_class('ID3');
 			$mp3->addFilname($this->specific_node_information['name']);
 			$this->specific_node_information['mp3_info'] = $mp3->getInfo();
 			

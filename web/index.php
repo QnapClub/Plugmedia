@@ -12,9 +12,9 @@
 
 require_once 'system/core/frontcontroller.php';
 
-$directory =& load_class('Directory2'); // FIRST INSTRUCTION
+$directory = load_class('Directory2'); // FIRST INSTRUCTION
 
-$index =& load_class('Indexing'); 	// Use to add the root path if not present (first time access or root path changed)
+$index = load_class('Indexing'); 	// Use to add the root path if not present (first time access or root path changed)
 if ($index->getInserted_directory()>0)
 	header("Location:index.php");
 

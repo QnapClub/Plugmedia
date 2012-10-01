@@ -170,7 +170,7 @@ function get_Ricoh_Makernote( $Makernote_Tag, $EXIF_Array, $filehnd, $Make_Field
                         // Ricoh Sub-IFD tag exists - Process it
 
                         // Grab the Sub-IFD tag for easier processing
-                        $SubIFD_Tag = &$Makernote_Tag['Decoded Data'][0][0x2001];
+                        $SubIFD_Tag = $Makernote_Tag['Decoded Data'][0][0x2001];
 
                         // Check if the Sub-IFD starts with the correct header
                         if ( substr( $SubIFD_Tag['Data'], 0, 19 ) === "[Ricoh Camera Info]" )

@@ -25,7 +25,7 @@ function &load_class($class, $instantiate = TRUE)
 	}
 	$name = 'CORE_'.$class;
 	
-	$objects[$class] =& new $name();
+	$objects[$class] = new $name();
 	return $objects[$class];
 }
 
@@ -55,7 +55,7 @@ function &get_config()
 			exit('Your config file does not appear to be formatted correctly.');
 		}
 
-		$main_conf[0] =& $config;
+		$main_conf[0] = $config;
 	}
 	return $main_conf[0];
 }
@@ -66,7 +66,7 @@ function config_item($item)
 
 	if ( ! isset($config_item[$item]))
 	{
-		$config =& get_config();
+		$config = get_config();
 		
 		if ( ! isset($config[$item]))
 		{
@@ -80,14 +80,14 @@ function config_item($item)
 
 function show_error($message)
 {
-	$error =& load_class('Exceptions');
+	$error = load_class('Exceptions');
 	echo $error->show_error('An Error Was Encountered', $message);
 	exit;
 }
 
 function show_404($page = '')
 {
-	$error =& load_class('Exceptions');
+	$error = load_class('Exceptions');
 	$error->show_404($page);
 	exit;
 }
@@ -96,13 +96,13 @@ function log_message($level = 'error', $message, $php_error = FALSE)
 {
 	static $LOG;
 	
-	$config =& get_config();
+	$config = get_config();
 	if ($config['log_threshold'] == 0)
 	{
 		return;
 	}
 
-	$LOG =& load_class('Log');	
+	$LOG = load_class('Log');	
 	$LOG->write_log($level, $message, $php_error);
 }
 
@@ -114,13 +114,13 @@ function _exception_handler($severity, $message, $filepath, $line)
 		return;
 	}
 
-	$error =& load_class('Exceptions');
+	$error = load_class('Exceptions');
 	if (($severity & error_reporting()) == $severity)
 	{
 		$error->show_php_error($severity, $message, $filepath, $line);
 	}
 	
-	$config =& get_config();
+	$config = get_config();
 	if ($config['log_threshold'] == 0)
 	{
 		return;

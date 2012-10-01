@@ -21,9 +21,9 @@ class getid3_ac3
 
 		///AH
 		$ThisFileInfo['ac3']['raw']['bsi'] = array();
-		$thisfile_ac3                      = &$ThisFileInfo['ac3'];
-		$thisfile_ac3_raw                  = &$thisfile_ac3['raw'];
-		$thisfile_ac3_raw_bsi              = &$thisfile_ac3_raw['bsi'];
+		$thisfile_ac3                      = $ThisFileInfo['ac3'];
+		$thisfile_ac3_raw                  = $thisfile_ac3['raw'];
+		$thisfile_ac3_raw_bsi              = $thisfile_ac3_raw['bsi'];
 
 
 		// http://www.atsc.org/standards/a_52a.pdf
