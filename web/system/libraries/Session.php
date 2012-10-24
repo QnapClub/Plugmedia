@@ -125,6 +125,8 @@ class CORE_Session {
 			if(curl_errno($ch))
 			{
 				log_message('debug', "Erreur Curl : " . curl_error($ch));
+				curl_close($ch);
+				return false;
 			}
 			
 			curl_close($ch);
