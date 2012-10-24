@@ -61,7 +61,7 @@ class CORE_Db_postgresql
 		$this->connexion = MDB2::connect($dsn, $options);
 		
 		if (PEAR::isError($this->connexion)) {
-			$error_msg = "[DATABASE] Plugmedia Database was not correctly installed or is missing, please check the qpkg or contact Plugmedia Website support ".$db->getMessage(); 
+			$error_msg = "[DATABASE] Plugmedia Database was not correctly installed or is missing, please check the qpkg or contact Plugmedia Website support"; 
 			log_message('error', $error_msg );	
 			$this->error = $error_msg;
 			return FALSE;
